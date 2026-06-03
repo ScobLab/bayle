@@ -1,0 +1,46 @@
+{
+  "titre_demo": "Article sur la recherche médicale et les vaccins — Exemple de démonstration (vigilance : santé)",
+  "texte_source": "[TEXTE SOURCE DE DÉMONSTRATION À REMPLACER — Insérez ici l'article complet analysé]",
+  "analyse": {
+    "locuteur": {
+      "identification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+      "affiliations_connues": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+      "intérêts_potentiels": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+    },
+    "faits_vs_opinions": {
+      "faits_vérifiables": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "opinions_assumées": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "opinions_déguisées_en_faits": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+    },
+    "vérifications": {
+      "affirmations_solides": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "affirmations_à_nuancer": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "affirmations_problématiques": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "limites_de_ma_vérification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+    },
+    "intérêts_servis": {
+      "à_qui_ce_discours_profite": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+      "objectifs_probables": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+      "public_cible": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+    },
+    "biais_de_cadrage": {
+      "mots_chargés": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "choix_d_angle": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+      "structure_rhétorique": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+    },
+    "omissions": {
+      "informations_manquantes": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
+      "contre-arguments_absents": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+    },
+    "contre_points_légitimes": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+    "fiabilité_globale": {
+      "score_sur_10": 7,
+      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+      "ce_que_le_lecteur_devrait_creuser": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+    },
+    "vigilance_recommandée": {
+      "niveau": "santé_science_médicale",
+      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bayle — Analyse critique d'articles de presse. Outil d'aide à la lecture critique, en hommage à Pierre Bayle.">
+  <title>Bayle — Analyse critique d'articles de presse</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Styles personnalisés -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-container">
+
+  <!-- ================================================================
+       EN-TÊTE
+       ================================================================ -->
+  <header class="site-header">
+    <h1 class="title-bayle">Bayle</h1>
+    <p class="site-subtitle">
+      Analyse critique d'articles de presse.
+      En hommage à Pierre Bayle (1647–1706), philosophe des Lumières et père du fact-checking moderne.
+    </p>
+  </header>
+
+  <!-- ================================================================
+       AVERTISSEMENT PERMANENT
+       ================================================================ -->
+  <p class="disclaimer">
+    Bayle est un outil expérimental d'aide à la lecture critique.
+    Cet outil ne remplace ni le journalisme, ni votre propre jugement.
+  </p>
+
+  <!-- ================================================================
+       SECTION DÉMONSTRATION
+       ================================================================ -->
+  <section class="demo-section" aria-label="Analyses de démonstration">
+    <p class="demo-section-title">Découvrir avec des exemples</p>
+    <div id="demo-cards" role="list" aria-label="Analyses pré-générées">
+      <!-- Les cartes sont injectées par script.js -->
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SÉPARATEUR
+       ================================================================ -->
+  <div class="separator" aria-hidden="true">Ou analysez votre propre article</div>
+
+  <!-- ================================================================
+       FORMULAIRE D'ANALYSE
+       ================================================================ -->
+  <section id="form-section" aria-label="Formulaire d'analyse">
+    <p class="form-section-title">Analyser un article</p>
+
+    <!-- Clé API -->
+    <div class="form-group">
+      <label for="api-key" class="form-label">Votre clé API Anthropic</label>
+      <div class="api-key-row">
+        <input
+          type="password"
+          id="api-key"
+          class="form-input"
+          placeholder="sk-ant-api03-…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-describedby="api-key-notice"
+        >
+        <button type="button" id="clear-key" class="btn-clear" aria-label="Effacer la clé API enregistrée">
+          Effacer ma clé
+        </button>
+      </div>
+      <p id="api-key-notice" class="api-key-notice">
+        Votre clé est stockée uniquement dans votre navigateur. Elle n'est jamais envoyée ailleurs que vers l'API officielle Anthropic.
+        <a
+          href="https://console.anthropic.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="api-key-link"
+        >Comment obtenir une clé en 3 minutes →</a>
+      </p>
+    </div>
+
+    <!-- Zone de texte -->
+    <div class="form-group">
+      <label for="article-text" class="form-label">Texte de l'article à analyser</label>
+      <textarea
+        id="article-text"
+        class="form-textarea"
+        placeholder="Collez ici le texte intégral de l'article (minimum 200 caractères)…"
+        rows="8"
+        aria-describedby="char-count"
+      ></textarea>
+      <div class="textarea-footer">
+        <span id="char-count" aria-live="polite">0 caractère</span>
+      </div>
+    </div>
+
+    <!-- Bouton analyser -->
+    <button type="button" id="analyze-btn" class="btn-analyze" disabled>
+      Analyser
+    </button>
+
+    <!-- Zone de chargement -->
+    <div id="loading-zone" role="status" aria-live="polite">
+      <span class="loading-spinner" aria-hidden="true"></span>
+      Analyse en cours, environ 30 secondes…
+    </div>
+
+    <!-- Zone d'erreur -->
+    <div id="error-zone" role="alert" aria-live="assertive"></div>
+
+  </section>
+
+  <!-- ================================================================
+       ZONE DE RÉSULTAT
+       ================================================================ -->
+  <section id="result-zone" aria-label="Résultat de l'analyse" aria-live="polite">
+    <!-- Injectée dynamiquement par script.js -->
+  </section>
+
+  <!-- ================================================================
+       PIED DE PAGE
+       ================================================================ -->
+  <footer class="site-footer">
+    <p>
+      <a href="https://github.com/Scobarth/bayle" target="_blank" rel="noopener noreferrer">Code source</a>
+      &nbsp;·&nbsp;
+      <a href="PROMPT.md" target="_blank">Prompt d'analyse (public)</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/Scobarth/bayle/issues" target="_blank" rel="noopener noreferrer">Signaler un problème</a>
+    </p>
+    <p style="margin-top: 0.5rem;">Licence MIT &nbsp;·&nbsp; Aucun tracking, aucun cookie</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
