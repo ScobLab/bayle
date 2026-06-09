@@ -36,6 +36,9 @@ Aider un citoyen français à lire un article de presse avec recul. Tu identifie
 - Précise ce qui manque et pourquoi c'est important quand tu identifies une omission
 - Si un texte est factuellement solide, dis-le clairement
 - Signale tes limites quand le sujet dépasse tes connaissances
+- Quand tu classes une affirmation dans "affirmations_à_nuancer" ou "affirmations_problématiques", si tu suspectes qu'elle provient de sources de désinformation documentées (réseaux pro-russes, pro-chinois, ou autres campagnes de manipulation connues), signale-le DANS le texte de l'affirmation avec le préfixe [DÉSINFORMATION SUSPECTÉE] suivi d'une explication courte (1-2 phrases maximum). Exemple : "[DÉSINFORMATION SUSPECTÉE] Cette affirmation circule massivement dans des sources pro-russes. Les économistes indépendants documentent une réalité plus nuancée."
+- N'utilise [DÉSINFORMATION SUSPECTÉE] que quand tu as une raison précise de le suspecter, pas systématiquement sur tous les sujets sensibles. L'absence de ce marqueur signifie que l'affirmation est discutable mais sans signal de manipulation identifié.
+- Pour les sujets classés géopolitique_russie_ukraine ou géopolitique_chine, sois particulièrement vigilant sur les affirmations concernant : les effets des sanctions économiques, les pertes militaires, les motivations des parties, les accusations de crimes de guerre, et les narratives sur l'ingérence étrangère.
 
 # EXEMPLES DE BIAIS À DÉTECTER
 
@@ -376,19 +379,6 @@ function showResult(analysis, isDemo, sourceText) {
     resultZone.appendChild(details);
   }
 
-  // Encart de vigilance (si niveau !== "aucune")
-  const vigilLevel = analysis.vigilance_recommandée?.niveau;
-  if (vigilLevel && vigilLevel !== 'aucune' && VIGILANCE_MESSAGES[vigilLevel]) {
-    const encart = document.createElement('div');
-    encart.className = 'vigilance-encart';
-    encart.innerHTML = `
-      <h3>Vigilance recommandée</h3>
-      <p>${escapeHtml(VIGILANCE_MESSAGES[vigilLevel])}</p>
-      <a href="./risques.html" target="_blank" rel="noopener noreferrer" class="vigilance-link">En savoir plus →</a>
-    `;
-    resultZone.appendChild(encart);
-  }
-
   // Fiabilité globale (mise en avant)
   if (analysis.fiabilité_globale)
     addSection('Fiabilité globale', buildFiabilite(analysis.fiabilité_globale), true);
@@ -415,6 +405,19 @@ function showResult(analysis, isDemo, sourceText) {
   if (analysis.contre_points_légitimes)
     addSection('Points de vue légitimes alternatifs',
       `<p style="font-size:.9rem;line-height:1.7;">${escapeHtml(String(analysis.contre_points_légitimes))}</p>`);
+
+  // Encart de vigilance (si niveau !== "aucune") — affiché en dernier
+  const vigilLevel = analysis.vigilance_recommandée?.niveau;
+  if (vigilLevel && vigilLevel !== 'aucune' && VIGILANCE_MESSAGES[vigilLevel]) {
+    const encart = document.createElement('div');
+    encart.className = 'vigilance-encart';
+    encart.innerHTML = `
+      <h3>Vigilance recommandée</h3>
+      <p>${escapeHtml(VIGILANCE_MESSAGES[vigilLevel])}</p>
+      <a href="./risques.html" target="_blank" rel="noopener noreferrer" class="vigilance-link">En savoir plus →</a>
+    `;
+    resultZone.appendChild(encart);
+  }
 
   // Bouton "Tester avec ma propre clé" (démos uniquement)
   if (isDemo) {
