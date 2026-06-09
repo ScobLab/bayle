@@ -376,10 +376,6 @@ function showResult(analysis, isDemo, sourceText) {
     resultZone.appendChild(details);
   }
 
-  // Fiabilité globale (mise en avant, en premier)
-  if (analysis.fiabilité_globale)
-    addSection('Fiabilité globale', buildFiabilite(analysis.fiabilité_globale), true);
-
   // Encart de vigilance (si niveau !== "aucune")
   const vigilLevel = analysis.vigilance_recommandée?.niveau;
   if (vigilLevel && vigilLevel !== 'aucune' && VIGILANCE_MESSAGES[vigilLevel]) {
@@ -392,6 +388,10 @@ function showResult(analysis, isDemo, sourceText) {
     `;
     resultZone.appendChild(encart);
   }
+
+  // Fiabilité globale (mise en avant)
+  if (analysis.fiabilité_globale)
+    addSection('Fiabilité globale', buildFiabilite(analysis.fiabilité_globale), true);
 
   // Sections d'analyse
   if (analysis.locuteur)
