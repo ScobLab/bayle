@@ -131,10 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // CHARGEMENT DES DÉMOS
 // ====================================================================
 async function loadDemos() {
+  const base = document.location.href.replace(/\/[^/]*$/, '');
   const files = [
-    'demo/analyse-1.json',
-    'demo/analyse-2.json',
-    'demo/analyse-3.json'
+    base + '/demo/analyse-1.json',
+    base + '/demo/analyse-2.json',
+    base + '/demo/analyse-3.json'
   ];
 
   let loaded = 0;
