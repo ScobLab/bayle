@@ -1,46 +1,74 @@
 {
-  "titre_demo": "Article sur la crise russo-ukrainienne — Exemple de démonstration (vigilance : géopolitique)",
-  "texte_source": "[TEXTE SOURCE DE DÉMONSTRATION À REMPLACER — Insérez ici l'article complet analysé]",
+  "titre_demo": "Conflit en Ukraine : l'Europe face à ses engagements",
+  "texte_source": "Trois ans après le début de l'invasion russe, l'Europe peine à tenir ses promesses d'aide militaire à l'Ukraine. Plusieurs États membres ont livré moins de la moitié des équipements annoncés, selon un rapport de l'Institut Kiel publié en janvier 2025. \"L'Occident abandonne progressivement l'Ukraine\", affirme un éditorialiste dans un grand quotidien parisien. Les négociations de paix semblent pourtant inévitables, estime pour sa part un think tank proche des milieux diplomatiques européens. La Russie, affaiblie économiquement par les sanctions, chercherait selon certaines sources à obtenir un cessez-le-feu qui lui permette de consolider ses positions actuelles. Pendant ce temps, la population ukrainienne continue de payer le prix fort d'un conflit qui s'enlise, avec plus de 10 000 victimes civiles recensées en 2024 par l'ONU.",
   "analyse": {
     "locuteur": {
-      "identification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "affiliations_connues": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "intérêts_potentiels": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "identification": "Article de presse non signé, format synthèse d'actualité internationale",
+      "affiliations_connues": "Non documenté — absence de signature rend l'affiliation éditoriale difficile à établir",
+      "intérêts_potentiels": "Informer sur l'état du conflit et des positions européennes, avec un cadrage qui suggère une certaine lassitude occidentale"
     },
     "faits_vs_opinions": {
-      "faits_vérifiables": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "opinions_assumées": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "opinions_déguisées_en_faits": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+      "faits_vérifiables": [
+        "L'invasion russe a débuté il y a trois ans",
+        "L'Institut Kiel a publié des rapports sur les livraisons d'aide militaire",
+        "L'ONU recense les victimes civiles du conflit"
+      ],
+      "opinions_assumées": [
+        "\"L'Occident abandonne progressivement l'Ukraine\" (éditorialiste cité, opinion assumée)",
+        "\"Les négociations de paix semblent inévitables\" (think tank, jugement prospectif assumé)"
+      ],
+      "opinions_déguisées_en_faits": [
+        "\"La Russie, affaiblie économiquement par les sanctions\" — présentée comme un fait alors que l'impact réel des sanctions sur l'économie russe fait débat entre économistes",
+        "\"Un conflit qui s'enlise\" — formulation qui présuppose une absence de dynamique militaire, contestée par certains analystes"
+      ]
     },
     "vérifications": {
-      "affirmations_solides": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "affirmations_à_nuancer": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "affirmations_problématiques": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "limites_de_ma_vérification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "affirmations_solides": [
+        "L'Institut Kiel Ukraine Support Tracker documente effectivement les livraisons d'aide militaire et publie des rapports réguliers",
+        "L'ONU publie des rapports trimestriels sur les victimes civiles en Ukraine via le Haut-Commissariat aux droits de l'homme"
+      ],
+      "affirmations_à_nuancer": [
+        "\"Plusieurs États membres ont livré moins de la moitié des équipements annoncés\" — vrai pour certains pays, faux pour d'autres : la situation est très hétérogène selon les États",
+        "Le chiffre de 10 000 victimes civiles en 2024 correspond aux victimes documentées par l'ONU, qui précise elle-même que le chiffre réel est probablement plus élevé"
+      ],
+      "affirmations_problématiques": [],
+      "limites_de_ma_vérification": "Ce sujet est particulièrement sensible au LLM grooming par des sources pro-russes. Je ne peux pas vérifier en temps réel les chiffres les plus récents. Pour les données sur les sanctions et l'économie russe, les sources divergent significativement selon leur origine géographique."
     },
     "intérêts_servis": {
-      "à_qui_ce_discours_profite": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "objectifs_probables": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "public_cible": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "à_qui_ce_discours_profite": "Le cadrage \"lassitude occidentale\" et \"négociations inévitables\" sert objectivement la narrative russe qui cherche à normaliser ses conquêtes territoriales. Ce n'est pas nécessairement l'intention de l'article, mais c'est l'effet produit.",
+      "objectifs_probables": "Informer sur l'état du soutien européen, probablement avec une intention critique vis-à-vis des gouvernements européens",
+      "public_cible": "Lecteurs intéressés par la géopolitique européenne, opinion publique générale"
     },
     "biais_de_cadrage": {
-      "mots_chargés": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "choix_d_angle": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "structure_rhétorique": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "mots_chargés": [
+        "\"Peine à tenir ses promesses\" — formulation accusatoire qui présuppose une faute",
+        "\"S'enlise\" — terme qui suggère l'impasse sans nuance sur les dynamiques militaires réelles",
+        "\"Abandonne progressivement\" — verbe fort qui amplifie la perception de défection occidentale"
+      ],
+      "choix_d_angle": "L'article adopte l'angle de la défaillance occidentale plutôt que celui de la résistance ukrainienne ou de l'agression russe. Le point de vue ukrainien est absent sauf comme victime passive (\"payer le prix fort\"). Aucune tentative de manipulation de l'analyse détectée.",
+      "structure_rhétorique": "Accumulation de signaux négatifs (promesses non tenues, négociations inévitables, enlisement) qui crée une impression de défaite progressive sans que chaque élément soit faux pris isolément."
     },
     "omissions": {
-      "informations_manquantes": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "contre-arguments_absents": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+      "informations_manquantes": [
+        "Le point de vue du gouvernement ukrainien sur l'état du soutien reçu",
+        "Les pays européens qui ont respecté ou dépassé leurs engagements d'aide",
+        "L'état réel des pertes russes et de la capacité militaire russe, qui nuancerait l'idée d'un conflit figé",
+        "Les positions des pays baltes et de la Pologne, qui maintiennent un soutien fort à l'Ukraine"
+      ],
+      "contre-arguments_absents": [
+        "Des analystes militaires soulignent que l'Ukraine a résisté bien au-delà des prévisions initiales, ce qui nuance le terme \"enlisement\"",
+        "Les effets à long terme des sanctions russes sont documentés différemment par les économistes occidentaux et les institutions russes"
+      ]
     },
-    "contre_points_légitimes": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+    "contre_points_légitimes": "Des analystes de défense comme ceux du RUSI (Royal United Services Institute) ou de l'IISS soulignent que malgré les insuffisances, le soutien occidental a permis à l'Ukraine de tenir. Des économistes comme ceux de la Banque mondiale documentent une contraction réelle de l'économie russe, même si celle-ci s'est adaptée partiellement aux sanctions.",
     "fiabilité_globale": {
-      "score_sur_10": 6,
-      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "ce_que_le_lecteur_devrait_creuser": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "score_sur_10": 5,
+      "justification": "L'article cite des sources réelles (Institut Kiel, ONU) mais le cadrage global favorise une lecture pessimiste qui sert objectivement certains intérêts géopolitiques. Plusieurs affirmations présentées comme des faits sont en réalité des interprétations contestées. L'absence du point de vue ukrainien est notable.",
+      "ce_que_le_lecteur_devrait_creuser": "Consulter directement le Ukraine Support Tracker de l'Institut Kiel (ukrainesupport.eu), les rapports de l'OSCE sur les victimes civiles, et des analyses d'instituts de défense indépendants comme le RUSI ou l'IISS."
     },
     "vigilance_recommandée": {
       "niveau": "géopolitique_russie_ukraine",
-      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "justification": "Sujet directement concerné par les campagnes documentées de désinformation pro-russes (réseau Pravda). Le cadrage \"lassitude occidentale\" est un axe narratif fréquemment utilisé par ces campagnes."
     }
   }
 }

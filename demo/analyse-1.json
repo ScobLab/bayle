@@ -1,46 +1,71 @@
 {
-  "titre_demo": "Article sur un sujet culturel ou sportif — Exemple de démonstration (vigilance : aucune)",
-  "texte_source": "[TEXTE SOURCE DE DÉMONSTRATION À REMPLACER — Insérez ici l'article complet analysé]",
+  "titre_demo": "Le retour du cinéma français — vers un renouveau après la crise",
+  "texte_source": "Le cinéma français connaît un regain d'intérêt notable depuis deux ans. Selon les chiffres du CNC, la fréquentation des salles a progressé de 12% en 2024 par rapport à 2023, portée notamment par le succès de plusieurs productions nationales. \"Le public français retrouve le chemin des salles\", se réjouit la présidente de la Fédération nationale des cinémas français. Les films hexagonaux représentent désormais 38% des entrées, leur meilleur score depuis dix ans. Cette dynamique s'explique en partie par une politique de soutien renforcée du ministère de la Culture, qui a augmenté les aides à la production de 15% sur la même période. Certains professionnels restent toutefois prudents : \"Un bon chiffre ne suffit pas à masquer les fragilités structurelles du secteur\", nuance un producteur indépendant parisien. Les plateformes de streaming continuent en effet de capter une part croissante des habitudes culturelles, notamment chez les moins de 35 ans.",
   "analyse": {
     "locuteur": {
-      "identification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "affiliations_connues": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "intérêts_potentiels": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "identification": "Article de presse généraliste non signé, vraisemblablement issu d'un quotidien national",
+      "affiliations_connues": "Non documenté — article sans signature explicite",
+      "intérêts_potentiels": "Informer le grand public sur l'état du secteur culturel, sans orientation commerciale apparente"
     },
     "faits_vs_opinions": {
-      "faits_vérifiables": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "opinions_assumées": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "opinions_déguisées_en_faits": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+      "faits_vérifiables": [
+        "Progression de la fréquentation des salles de 12% en 2024 par rapport à 2023 selon le CNC",
+        "Les films français représentent 38% des entrées",
+        "Le ministère de la Culture a augmenté les aides à la production de 15%"
+      ],
+      "opinions_assumées": [
+        "\"Le public français retrouve le chemin des salles\" (déclaration assumée de la présidente de la FNCF)",
+        "\"Un bon chiffre ne suffit pas à masquer les fragilités structurelles\" (producteur indépendant, opinion assumée)"
+      ],
+      "opinions_déguisées_en_faits": [
+        "\"Meilleur score depuis dix ans\" — affirmation comparative présentée comme factuelle sans source précise pour les années antérieures"
+      ]
     },
     "vérifications": {
-      "affirmations_solides": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "affirmations_à_nuancer": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "affirmations_problématiques": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "limites_de_ma_vérification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "affirmations_solides": [
+        "Le CNC publie effectivement des données de fréquentation annuelles vérifiables",
+        "La politique de soutien du ministère de la Culture au cinéma est documentée et vérifiable via les rapports publics"
+      ],
+      "affirmations_à_nuancer": [
+        "La progression de 12% doit être replacée dans le contexte post-pandémique : la base de comparaison 2023 était encore basse",
+        "Les 38% de parts de marché sont présentés comme un succès mais restent inférieurs aux niveaux d'avant 2020"
+      ],
+      "affirmations_problématiques": [],
+      "limites_de_ma_vérification": "Je ne peux pas vérifier en temps réel les chiffres exacts du CNC pour 2024. Les données citées sont plausibles mais nécessitent une vérification sur cnc.fr pour confirmation."
     },
     "intérêts_servis": {
-      "à_qui_ce_discours_profite": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "objectifs_probables": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "public_cible": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "à_qui_ce_discours_profite": "Le secteur cinématographique français dans son ensemble, et indirectement le ministère de la Culture dont la politique est présentée positivement",
+      "objectifs_probables": "Valoriser le bilan du secteur et légitimer les politiques publiques de soutien au cinéma",
+      "public_cible": "Grand public intéressé par la culture, professionnels du secteur, décideurs politiques"
     },
     "biais_de_cadrage": {
-      "mots_chargés": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "choix_d_angle": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "structure_rhétorique": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "mots_chargés": [
+        "\"Regain d'intérêt notable\" — formulation positive qui présuppose un jugement de valeur",
+        "\"Renouveau\" dans le titre — terme chargé d'optimisme qui oriente la lecture avant même le premier paragraphe"
+      ],
+      "choix_d_angle": "L'article privilégie l'angle de la reprise et du succès. L'impact des plateformes streaming est mentionné mais relégué en dernière phrase, minimisant une tendance structurelle majeure.",
+      "structure_rhétorique": "Structure classique en entonnoir positif : chiffres favorables en ouverture, voix dissidente en milieu d'article, conclusion qui revient à la tendance lourde (streaming). Aucune tentative de manipulation détectée."
     },
     "omissions": {
-      "informations_manquantes": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "contre-arguments_absents": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+      "informations_manquantes": [
+        "Données sur la rentabilité réelle des films français par rapport aux productions américaines en salle",
+        "Impact concret des plateformes sur les revenus des producteurs indépendants",
+        "Comparaison avec les chiffres européens pour contextualiser la performance française"
+      ],
+      "contre-arguments_absents": [
+        "Des analystes du secteur estiment que la hausse de fréquentation masque une concentration des entrées sur un petit nombre de blockbusters",
+        "La question de la diversité des films soutenus par les aides publiques n'est pas abordée"
+      ]
     },
-    "contre_points_légitimes": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+    "contre_points_légitimes": "Des économistes de la culture soulignent que la part de marché du cinéma français reste structurellement menacée par les habitudes de consommation des jeunes générations. Des producteurs indépendants pointent une concentration des aides sur les grands studios au détriment des petites productions.",
     "fiabilité_globale": {
       "score_sur_10": 7,
-      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "ce_que_le_lecteur_devrait_creuser": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "justification": "L'article s'appuie sur des chiffres officiels vérifiables et cite des sources identifiables. Le cadrage est globalement positif mais pas trompeur. Les limites sont la contextualisation insuffisante des chiffres et l'angle délibérément optimiste qui minimise les défis structurels.",
+      "ce_que_le_lecteur_devrait_creuser": "Vérifier les données brutes sur cnc.fr, consulter les rapports annuels du CNC, et rechercher les avis d'économistes indépendants spécialisés dans l'industrie culturelle."
     },
     "vigilance_recommandée": {
       "niveau": "aucune",
-      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "justification": "Sujet culturel sans dimension géopolitique ou politique sensible. Risque de biais ou de désinformation faible."
     }
   }
 }

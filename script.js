@@ -376,6 +376,10 @@ function showResult(analysis, isDemo, sourceText) {
     resultZone.appendChild(details);
   }
 
+  // Fiabilité globale (mise en avant, en premier)
+  if (analysis.fiabilité_globale)
+    addSection('Fiabilité globale', buildFiabilite(analysis.fiabilité_globale), true);
+
   // Encart de vigilance (si niveau !== "aucune")
   const vigilLevel = analysis.vigilance_recommandée?.niveau;
   if (vigilLevel && vigilLevel !== 'aucune' && VIGILANCE_MESSAGES[vigilLevel]) {
@@ -384,7 +388,7 @@ function showResult(analysis, isDemo, sourceText) {
     encart.innerHTML = `
       <h3>Vigilance recommandée</h3>
       <p>${escapeHtml(VIGILANCE_MESSAGES[vigilLevel])}</p>
-      <a href="RISQUES.md" target="_blank" rel="noopener noreferrer" class="vigilance-link">En savoir plus →</a>
+      <a href="./risques.html" target="_blank" rel="noopener noreferrer" class="vigilance-link">En savoir plus →</a>
     `;
     resultZone.appendChild(encart);
   }
@@ -411,9 +415,6 @@ function showResult(analysis, isDemo, sourceText) {
   if (analysis.contre_points_légitimes)
     addSection('Points de vue légitimes alternatifs',
       `<p style="font-size:.9rem;line-height:1.7;">${escapeHtml(String(analysis.contre_points_légitimes))}</p>`);
-
-  if (analysis.fiabilité_globale)
-    addSection('Fiabilité globale', buildFiabilite(analysis.fiabilité_globale), true);
 
   // Bouton "Tester avec ma propre clé" (démos uniquement)
   if (isDemo) {

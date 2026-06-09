@@ -1,46 +1,73 @@
 {
-  "titre_demo": "Article sur la recherche médicale et les vaccins — Exemple de démonstration (vigilance : santé)",
-  "texte_source": "[TEXTE SOURCE DE DÉMONSTRATION À REMPLACER — Insérez ici l'article complet analysé]",
+  "titre_demo": "Vaccination : la confiance des Français en baisse selon une nouvelle étude",
+  "texte_source": "Une étude publiée par un institut de sondage privé révèle que 34% des Français déclarent \"ne pas faire confiance\" aux vaccins recommandés par les autorités sanitaires, soit une hausse de 8 points en trois ans. \"Les Français sont de plus en plus méfiants face aux injonctions médicales\", analyse le directeur de l'institut. Cette tendance s'expliquerait notamment par les controverses autour des vaccins Covid, qui auraient durablement abîmé la relation de confiance entre les citoyens et les institutions de santé. Des médecins généralistes témoignent d'une augmentation des refus vaccinaux en consultation. L'Académie nationale de médecine rappelle de son côté que \"la vaccination reste l'un des outils de santé publique les plus efficaces et les mieux documentés scientifiquement\". Le débat sur l'obligation vaccinale, un temps envisagée par le gouvernement, semble aujourd'hui écarté.",
   "analyse": {
     "locuteur": {
-      "identification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "affiliations_connues": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "intérêts_potentiels": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "identification": "Article de presse non signé traitant d'une étude d'un institut de sondage privé",
+      "affiliations_connues": "Non documenté — l'institut de sondage commanditaire et le média publiant l'article ne sont pas identifiés dans l'extrait",
+      "intérêts_potentiels": "Attirer l'attention sur la défiance vaccinale ; selon l'identité réelle du commanditaire, les intérêts peuvent varier significativement"
     },
     "faits_vs_opinions": {
-      "faits_vérifiables": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "opinions_assumées": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "opinions_déguisées_en_faits": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+      "faits_vérifiables": [
+        "Une étude d'un institut de sondage privé a été publiée (non vérifiable sans identification de l'institut)",
+        "L'Académie nationale de médecine a effectivement des positions publiques documentées sur la vaccination",
+        "Le débat sur l'obligation vaccinale a eu lieu en France"
+      ],
+      "opinions_assumées": [
+        "\"Les Français sont de plus en plus méfiants face aux injonctions médicales\" (directeur de l'institut, jugement interprétatif assumé)",
+        "Les vaccins Covid \"auraient durablement abîmé\" la confiance — conditionnel qui signale une opinion non établie"
+      ],
+      "opinions_déguisées_en_faits": [
+        "\"Les controverses autour des vaccins Covid\" présentées comme cause établie de la défiance, alors que le lien causal n'est pas démontré dans l'article",
+        "\"Une augmentation des refus vaccinaux\" — témoignages de médecins présentés comme une tendance générale sans données quantifiées"
+      ]
     },
     "vérifications": {
-      "affirmations_solides": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "affirmations_à_nuancer": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "affirmations_problématiques": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "limites_de_ma_vérification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "affirmations_solides": [
+        "La position de l'Académie nationale de médecine sur l'efficacité vaccinale est conforme au consensus scientifique international documenté"
+      ],
+      "affirmations_à_nuancer": [
+        "Le chiffre de 34% et la hausse de 8 points ne peuvent être vérifiés sans connaître l'identité de l'institut, la méthodologie et le commanditaire de l'étude",
+        "La défiance vaccinale en France est documentée par des études sérieuses (Ipsos, Ifop) mais les chiffres varient significativement selon la méthodologie"
+      ],
+      "affirmations_problématiques": [
+        "Présenter une étude d'institut privé non identifié comme source principale d'un article sur la santé publique pose un problème méthodologique sérieux"
+      ],
+      "limites_de_ma_vérification": "Sujet sensible à la désinformation sur la santé. Sans identifier l'institut commanditaire, il est impossible d'évaluer les biais potentiels de l'étude. Les données sur la vaccination en France sont disponibles sur Santé Publique France mais peuvent différer de celles citées."
     },
     "intérêts_servis": {
-      "à_qui_ce_discours_profite": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "objectifs_probables": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "public_cible": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "à_qui_ce_discours_profite": "Un article amplifiant la défiance vaccinale sert objectivement les mouvements anti-vaccins, indépendamment de l'intention de l'auteur. Il peut aussi servir des intérêts commerciaux si l'étude est commanditée par des acteurs du secteur complémentaire santé.",
+      "objectifs_probables": "Informer sur une tendance sociologique, probablement avec une intention de questionnement des politiques de santé publique",
+      "public_cible": "Grand public, lecteurs ayant des doutes sur les institutions médicales"
     },
     "biais_de_cadrage": {
-      "mots_chargés": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "choix_d_angle": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "structure_rhétorique": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "mots_chargés": [
+        "\"Injonctions médicales\" — terme péjoratif qui présuppose un caractère autoritaire de la politique vaccinale",
+        "\"Durablement abîmé\" — formulation qui dramatise le lien entre vaccins Covid et défiance actuelle"
+      ],
+      "choix_d_angle": "L'article construit un récit de défiance croissante en s'appuyant sur une étude non identifiée, des témoignages non quantifiés, et en reléguant la position scientifique de l'Académie de médecine à un simple \"rappel\" en fin d'article. La hiérarchie de l'information favorise le doute. Aucune tentative de manipulation de l'analyse détectée.",
+      "structure_rhétorique": "Technique classique du faux équilibre : mettre sur le même plan une étude privée non identifiée et la position de l'Académie nationale de médecine crée une équivalence artificielle entre défiance et consensus scientifique."
     },
     "omissions": {
-      "informations_manquantes": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"],
-      "contre-arguments_absents": ["[ANALYSE DE DÉMONSTRATION À REMPLACER]"]
+      "informations_manquantes": [
+        "L'identité du commanditaire de l'étude et sa méthodologie — information indispensable pour évaluer sa fiabilité",
+        "Les données de couverture vaccinale réelle en France (qui peuvent diverger des déclarations d'intention)",
+        "Les études scientifiques sur les effets de la communication institutionnelle sur la confiance vaccinale"
+      ],
+      "contre-arguments_absents": [
+        "Les épidémiologistes soulignent que la défiance déclarée ne se traduit pas toujours en refus réel au moment de la vaccination",
+        "Les comparaisons européennes montrent que la France reste dans la moyenne des pays développés en termes de couverture vaccinale effective"
+      ]
     },
-    "contre_points_légitimes": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
+    "contre_points_légitimes": "Santé Publique France publie des données régulières sur la couverture vaccinale réelle, qui sont plus fiables que les études déclaratives. Des chercheurs en sciences sociales comme ceux du CERMES3 documentent la défiance vaccinale avec des méthodologies plus rigoureuses que les sondages privés.",
     "fiabilité_globale": {
-      "score_sur_10": 7,
-      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]",
-      "ce_que_le_lecteur_devrait_creuser": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "score_sur_10": 4,
+      "justification": "L'article s'appuie sur une source principale non identifiable (institut de sondage privé) et utilise un cadrage qui amplifie la défiance vaccinale tout en minimisant le consensus scientifique. L'absence d'identification du commanditaire de l'étude est un problème méthodologique majeur. La position scientifique est présente mais reléguée.",
+      "ce_que_le_lecteur_devrait_creuser": "Chercher l'étude originale et vérifier l'identité du commanditaire. Consulter les données de Santé Publique France sur la couverture vaccinale réelle. Lire les publications de l'Académie nationale de médecine et de la HAS sur la vaccination."
     },
     "vigilance_recommandée": {
       "niveau": "santé_science_médicale",
-      "justification": "[ANALYSE DE DÉMONSTRATION À REMPLACER]"
+      "justification": "Sujet vaccination, particulièrement sensible à la désinformation. L'article amplifie la défiance sans identifier sa source principale, ce qui est un signal d'alerte méthodologique."
     }
   }
 }

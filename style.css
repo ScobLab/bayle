@@ -723,6 +723,87 @@ body {
 }
 
 /* ================================================================
+   PAGE RISQUES (risques.html)
+   ================================================================ */
+
+.risk-back-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: #AAA;
+  text-decoration: none;
+}
+
+.risk-back-link:hover {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.risques-content {
+  margin: 0 1.25rem 3rem;
+}
+
+.risk-section {
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.risk-section-title {
+  background: #1A1A1A;
+  color: #FFF;
+  padding: 0.65rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.risk-section-body {
+  padding: 1rem 1.25rem;
+  background: #FAF8F4;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1A1A1A;
+}
+
+.risk-section-body p {
+  margin: 0 0 0.75rem;
+}
+
+.risk-section-body p:last-child {
+  margin-bottom: 0;
+}
+
+.risk-section-body ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+  color: #555;
+}
+
+.risk-section-body ul:last-child {
+  margin-bottom: 0;
+}
+
+.risk-section-body li {
+  margin-bottom: 0.35rem;
+}
+
+.risk-section-body strong {
+  color: #1A1A1A;
+}
+
+.risk-section-body code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+  background: #F0EDE6;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 
