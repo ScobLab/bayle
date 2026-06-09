@@ -294,7 +294,7 @@ async function callAnthropicAPI(apiKey, userText) {
       !data.model || !String(data.model).startsWith('claude-')) {
     throw new Error(
       "Réponse au format inattendu. L'instance officielle Bayle n'utilise que l'API Anthropic. " +
-      "Si vous voyez ce message sur scobarth.github.io/bayle, contactez via Issues GitHub."
+      "Si vous voyez ce message sur scoblab.github.io/bayle, contactez via Issues GitHub."
     );
   }
 
@@ -353,7 +353,7 @@ function showResult(analysis, isDemo, sourceText) {
   const watermark = document.createElement('div');
   watermark.className = 'watermark';
   watermark.innerHTML =
-    `<strong>Bayle</strong> — <a href="https://scobarth.github.io/bayle/" target="_blank" rel="noopener noreferrer">scobarth.github.io/bayle</a><br>` +
+    `<strong>Bayle</strong> — <a href="https://scoblab.github.io/bayle/" target="_blank" rel="noopener noreferrer">scoblab.github.io/bayle</a><br>` +
     `Analyse générée le ${new Date().toISOString()}`;
   resultZone.appendChild(watermark);
 

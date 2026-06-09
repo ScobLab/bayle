@@ -19,7 +19,7 @@ Public cible : citoyens français, à terme citoyens d'autres démocraties. Voca
 
 1. Aucun backend, aucune base de données, aucun coût d'infrastructure
 2. Site statique uniquement (HTML + CSS + JS vanilla, pas de framework)
-3. Hébergement GitHub Pages, URL finale : https://scobarth.github.io/bayle/
+3. Hébergement GitHub Pages, URL finale : https://scoblab.github.io/bayle/
 4. L'utilisateur fournit SA propre clé API Anthropic, stockée uniquement en localStorage du navigateur
 5. Appel direct depuis le navigateur vers https://api.anthropic.com/v1/messages
 6. Aucun tracking, aucun analytics, aucun cookie tiers
@@ -93,7 +93,7 @@ Au clic sur "Analyser" :
    - max_tokens : 4500
    - Le prompt système = celui dans PROMPT.md
    - Le message utilisateur = le texte encadré par les balises
-4. Vérifie que la réponse contient bien la structure Anthropic standard (champs `content`, `model` commençant par "claude-"). Si format différent, affiche : "Réponse au format inattendu. L'instance officielle Bayle n'utilise que l'API Anthropic. Si vous voyez ce message sur scobarth.github.io/bayle, contactez via Issues GitHub."
+4. Vérifie que la réponse contient bien la structure Anthropic standard (champs `content`, `model` commençant par "claude-"). Si format différent, affiche : "Réponse au format inattendu. L'instance officielle Bayle n'utilise que l'API Anthropic. Si vous voyez ce message sur scoblab.github.io/bayle, contactez via Issues GitHub."
 5. Parse la réponse JSON renvoyée par Claude
 6. Validation : vérifie que le JSON contient bien les 8 rubriques attendues (les 7 habituelles + `vigilance_recommandée`), que le score sur 10 est dans [0-10]. Si anomalie, affiche un avertissement.
 7. Affiche les rubriques sous forme de cartes lisibles
@@ -137,7 +137,7 @@ Avant d'afficher le résultat, vérifie la structure JSON, le score, et la prés
 # FILIGRANE TRAÇABLE
 
 En haut de la zone de résultat (avant les rubriques d'analyse) :
-"Bayle — scobarth.github.io/bayle"
+"Bayle — scoblab.github.io/bayle"
 "Analyse générée le [date+heure ISO]"
 
 # DÉTECTION PASSIVE DE L'ENDPOINT
@@ -291,7 +291,7 @@ git push
 Puis tu actives GitHub Pages (étape 6 du guide d'installation).
 
 **Tests obligatoires avant de me revenir :**
-1. Aller sur https://scobarth.github.io/bayle/ sans clé API → les 3 cartes de démo doivent être visibles et cliquables
+1. Aller sur https://scoblab.github.io/bayle/ sans clé API → les 3 cartes de démo doivent être visibles et cliquables
 2. Cliquer sur une démo → analyse pré-générée s'affiche avec bandeau bleu "ANALYSE DE DÉMONSTRATION"
 3. Avec ta clé API : article du Monde neutre → pas d'encart de vigilance
 4. Avec ta clé API : article sur l'Ukraine → encart ambré "géopolitique_russie_ukraine"
