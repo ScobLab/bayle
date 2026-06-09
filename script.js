@@ -314,11 +314,16 @@ async function callMistralAPI(apiKey, userText) {
 
   // Extraction et nettoyage du JSON
   let analysis;
+  const cleaned = cleanJSON(rawText);
   try {
-    analysis = JSON.parse(cleanJSON(rawText));
+    analysis = JSON.parse(cleaned);
   } catch {
-    showRawResponse(rawText);
-    throw new Error('JSON mal formé dans la réponse. Texte brut affiché ci-dessous.');
+    try {
+      analysis = JSON.parse(fixMissingCommas(cleaned));
+    } catch {
+      showRawResponse(rawText);
+      throw new Error('JSON mal formé dans la réponse. Texte brut affiché ci-dessous.');
+    }
   }
 
   checkAnalysisIntegrity(analysis);
@@ -569,6 +574,12 @@ function cleanJSON(text) {
   const lastBrace = cleaned.lastIndexOf('}');
   if (lastBrace !== -1 && lastBrace < cleaned.length - 1) cleaned = cleaned.substring(0, lastBrace + 1);
   return cleaned;
+}
+
+// Corrige une virgule manquante entre deux champs JSON (erreur fréquente de
+// Mistral : "}" suivi directement du "\"" du champ suivant sans séparateur).
+function fixMissingCommas(text) {
+  return text.replace(/}(\s*)"/g, '},$1"');
 }
 
 function el(tag, className, textContent) {
