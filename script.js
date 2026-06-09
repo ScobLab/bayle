@@ -178,6 +178,7 @@ function appendDemoCard(data, index) {
   card.innerHTML = `
     <span class="demo-card-number">Analyse ${index}</span>
     <span class="demo-card-title">${escapeHtml(data.titre_demo)}</span>
+    <span class="demo-card-fictif">Article fictif créé pour la démonstration</span>
     <span class="demo-card-cta">Voir l'analyse →</span>
   `;
   card.addEventListener('click', () => {
@@ -362,6 +363,8 @@ function showResult(analysis, isDemo, sourceText) {
   if (isDemo) {
     const banner = el('div', 'demo-banner', 'ANALYSE DE DÉMONSTRATION');
     resultZone.appendChild(banner);
+    const fictifNotice = el('p', 'demo-fictif-notice', 'Article fictif créé pour la démonstration');
+    resultZone.appendChild(fictifNotice);
   }
 
   // Filigrane traçable
