@@ -236,7 +236,7 @@ async function handleAnalyze() {
   resultZone.innerHTML = '';
 
   try {
-    const analysis = await callAnthropicAPI(apiKey, text);
+    const analysis = await callMistralAPI(apiKey, text);
     setLoading(false);
     showResult(analysis, false, null);
     resultZone.scrollIntoView({ behavior: 'smooth' });
@@ -247,26 +247,25 @@ async function handleAnalyze() {
 }
 
 // ====================================================================
-// APPEL API ANTHROPIC
+// APPEL API MISTRAL
 // ====================================================================
-async function callAnthropicAPI(apiKey, userText) {
-  const wrapped = `<article_a_analyser>\n${userText}\n</article_a_analyser>`;
-
+async function callMistralAPI(apiKey, userText) {
   let response;
   try {
-    response = await fetch('https://api.anthropic.com/v1/messages', {
+    response = await fetch('https://api.mistral.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
+        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-5-20250929',
+        model: 'mistral-small-latest',
+        messages: [
+          { role: 'system', content: ANALYSIS_PROMPT },
+          { role: 'user', content: `<article_a_analyser>\n${userText}\n</article_a_analyser>` }
+        ],
         max_tokens: 4500,
-        system: ANALYSIS_PROMPT,
-        messages: [{ role: 'user', content: wrapped }]
+        temperature: 0.1
       })
     });
   } catch {
@@ -274,10 +273,13 @@ async function callAnthropicAPI(apiKey, userText) {
   }
 
   if (response.status === 401) {
-    throw new Error('Clé API invalide, vérifiez sur console.anthropic.com');
+    throw new Error('Clé API invalide, vérifiez sur console.mistral.ai');
   }
   if (response.status === 429) {
-    throw new Error('Quota dépassé sur votre compte Anthropic');
+    throw new Error('Quota dépassé sur votre compte Mistral. Le tier gratuit a des limites — réessayez dans quelques minutes.');
+  }
+  if (response.status >= 500) {
+    throw new Error('Erreur du serveur Mistral, réessayez dans quelques instants.');
   }
   if (!response.ok) {
     throw new Error(`Erreur API (code ${response.status}). Réessayez ou vérifiez votre clé.`);
@@ -290,16 +292,12 @@ async function callAnthropicAPI(apiKey, userText) {
     throw new Error("Réponse de l'API illisible.");
   }
 
-  // Validation du format Anthropic
-  if (!data.content || !Array.isArray(data.content) ||
-      !data.model || !String(data.model).startsWith('claude-')) {
-    throw new Error(
-      "Réponse au format inattendu. L'instance officielle Bayle n'utilise que l'API Anthropic. " +
-      "Si vous voyez ce message sur scoblab.github.io/bayle, contactez via Issues GitHub."
-    );
+  // Validation du format Mistral
+  if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+    throw new Error('Réponse au format inattendu. Vérifiez que votre clé API est bien une clé Mistral valide.');
   }
 
-  const rawText = data.content[0]?.text || '';
+  const rawText = data.choices[0].message.content || '';
 
   // Extraction du JSON (gère les éventuels blocs markdown)
   let analysis;
