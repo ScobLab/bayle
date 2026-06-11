@@ -239,7 +239,11 @@ async function analyzeArticle(text) {
       try {
         analysis = JSON.parse(fixMissingCommas(cleaned));
       } catch {
-        throw new Error('Réponse JSON malformée. Réessayez.');
+        analysis = repairJSON(cleaned);
+        if (!analysis) {
+          showRawResponse(rawText);
+          return;
+        }
       }
     }
 
@@ -413,6 +417,39 @@ function fixMissingCommas(text) {
     .replace(/(\d|true|false|null)(\s*\n\s*)"(?=[^:]*":)/g, '$1,$2"')
     // Éviter les doubles virgules créées par les remplacements précédents
     .replace(/,(\s*),/g, ',$1');
+}
+
+// Dernier recours : réparation agressive du JSON avant nouvelle tentative de parsing
+function repairJSON(text) {
+  try {
+    // Tentative avec JSON5-like : remplacer les virgules manquantes de manière agressive
+    let t = text;
+    // Supprimer les virgules en trop avant } ou ]
+    t = t.replace(/,(\s*[}\]])/g, '$1');
+    // Ajouter virgules manquantes entre } et "
+    t = t.replace(/}(\s*)"/g, '},$1"');
+    // Ajouter virgules manquantes entre ] et "
+    t = t.replace(/](\s*)"/g, '],$1"');
+    // Ajouter virgules manquantes entre " et " (nouvelle clé)
+    t = t.replace(/"(\s*\n\s*)"(\s*:)/g, '",$1"$2');
+    // Ajouter virgules manquantes entre valeur string et nouvelle clé sur même niveau
+    t = t.replace(/("(?:[^"\\]|\\.)*")(\s*\n\s*)("(?:[^"\\]|\\.)*"\s*:)/g, '$1,$2$3');
+    return JSON.parse(t);
+  } catch(e) {
+    return null;
+  }
+}
+
+function showRawResponse(rawText) {
+  const container = document.getElementById('result-content');
+  container.innerHTML = `
+    <div class="warning-inline">JSON mal formé dans la réponse. Texte brut affiché ci-dessous.</div>
+    <div class="raw-response-box">
+      <strong>Réponse brute de l'API :</strong>
+      <pre>${escapeHtml(rawText)}</pre>
+    </div>
+  `;
+  showState('result');
 }
 
 function escapeHtml(str) {

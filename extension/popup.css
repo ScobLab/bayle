@@ -219,6 +219,21 @@ body {
   color: #92400E;
 }
 
+.raw-response-box {
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  padding: 0.75rem;
+  background: #F9F9F7;
+}
+
+.raw-response-box pre {
+  font-size: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-top: 6px;
+  color: #555;
+}
+
 /* Résultat */
 #result-content {
   max-height: 480px;

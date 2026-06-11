@@ -322,8 +322,11 @@ async function callMistralAPI(apiKey, userText) {
     try {
       analysis = JSON.parse(fixMissingCommas(cleaned));
     } catch {
-      showRawResponse(rawText);
-      throw new Error('JSON mal formé dans la réponse. Texte brut affiché ci-dessous.');
+      analysis = repairJSON(cleaned);
+      if (!analysis) {
+        showRawResponse(rawText);
+        throw new Error('JSON mal formé dans la réponse. Texte brut affiché ci-dessous.');
+      }
     }
   }
 
@@ -594,6 +597,27 @@ function fixMissingCommas(text) {
     .replace(/(\d|true|false|null)(\s*\n\s*)"(?=[^:]*":)/g, '$1,$2"')
     // Éviter les doubles virgules créées par les remplacements précédents
     .replace(/,(\s*),/g, ',$1');
+}
+
+// Dernier recours : réparation agressive du JSON avant nouvelle tentative de parsing
+function repairJSON(text) {
+  try {
+    // Tentative avec JSON5-like : remplacer les virgules manquantes de manière agressive
+    let t = text;
+    // Supprimer les virgules en trop avant } ou ]
+    t = t.replace(/,(\s*[}\]])/g, '$1');
+    // Ajouter virgules manquantes entre } et "
+    t = t.replace(/}(\s*)"/g, '},$1"');
+    // Ajouter virgules manquantes entre ] et "
+    t = t.replace(/](\s*)"/g, '],$1"');
+    // Ajouter virgules manquantes entre " et " (nouvelle clé)
+    t = t.replace(/"(\s*\n\s*)"(\s*:)/g, '",$1"$2');
+    // Ajouter virgules manquantes entre valeur string et nouvelle clé sur même niveau
+    t = t.replace(/("(?:[^"\\]|\\.)*")(\s*\n\s*)("(?:[^"\\]|\\.)*"\s*:)/g, '$1,$2$3');
+    return JSON.parse(t);
+  } catch(e) {
+    return null;
+  }
 }
 
 function el(tag, className, textContent) {
