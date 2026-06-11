@@ -213,7 +213,8 @@ async function analyzeArticle(text) {
           { role: 'user', content: `<article_a_analyser>\n${text}\n</article_a_analyser>` }
         ],
         max_tokens: 4500,
-        temperature: 0.1
+        temperature: 0.1,
+        response_format: { type: 'json_object' }
       })
     });
   } catch {
