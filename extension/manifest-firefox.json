@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Bayle",
+  "version": "1.0.0",
+  "description": "Analyseur de biais médiatiques. Extrait et analyse automatiquement l'article que vous lisez.",
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg"
+    },
+    "default_title": "Analyser avec Bayle"
+  },
+  "permissions": ["activeTab", "storage", "https://api.mistral.ai/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["readability.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
