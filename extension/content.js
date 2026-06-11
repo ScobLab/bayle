@@ -65,6 +65,22 @@ function extractAuteur() {
   const classContainsAuthor = document.querySelector('[class*="author"]');
   if (classContainsAuthor?.textContent?.trim()) return classContainsAuthor.textContent.replace(/\s+/g, ' ').trim();
 
+  // Sites académiques (ex. Cairn)
+  const classContrib = document.querySelector('[class*="contrib"]');
+  if (classContrib?.textContent?.trim()) return classContrib.textContent.replace(/\s+/g, ' ').trim();
+
+  const classCreator = document.querySelector('[class*="creator"]');
+  if (classCreator?.textContent?.trim()) return classCreator.textContent.replace(/\s+/g, ' ').trim();
+
+  const itempropAuthor = document.querySelector('[itemprop="author"]');
+  if (itempropAuthor?.textContent?.trim()) return itempropAuthor.textContent.replace(/\s+/g, ' ').trim();
+
+  const itempropName = document.querySelector('[itemprop="name"]');
+  if (itempropName?.textContent?.trim()) return itempropName.textContent.replace(/\s+/g, ' ').trim();
+
+  const linkPublications = document.querySelector('a[href*="publications-de-"]');
+  if (linkPublications?.textContent?.trim()) return linkPublications.textContent.replace(/\s+/g, ' ').trim();
+
   return '';
 }
 
