@@ -393,7 +393,11 @@ function cleanJSON(text) {
 }
 
 function fixMissingCommas(text) {
-  return text.replace(/}(\s*)"/g, '},$1"');
+  let fixed = text.replace(/}(\s*)"/g, '},$1"');
+  // Autre cas fréquent : une valeur string se termine en fin de ligne et la
+  // ligne suivante commence directement par la clé suivante, sans virgule.
+  fixed = fixed.replace(/"(\s*\n\s*)"/g, '",$1"');
+  return fixed;
 }
 
 function escapeHtml(str) {
