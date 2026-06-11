@@ -13,11 +13,66 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 function extractArticle() {
   // Utilise Readability.js (Mozilla) si disponible pour une extraction propre de l'article
-  const viaReadability = extractWithReadability();
-  if (viaReadability) return viaReadability;
+  const result = extractWithReadability() || extractBasic();
 
-  // Sinon fallback sur extraction basique
-  return extractBasic();
+  // Préfixe avec les métadonnées de la page (titre, auteur, source) si disponibles
+  const metaPrefix = buildMetadataPrefix();
+  if (metaPrefix) {
+    result.text = metaPrefix + result.text;
+  }
+
+  return result;
+}
+
+// ====================================================================
+// MÉTADONNÉES DE LA PAGE (auteur, titre, source)
+// ====================================================================
+function buildMetadataPrefix() {
+  const titre = extractTitre();
+  const auteur = extractAuteur();
+  const source = extractSource();
+
+  const lines = [];
+  if (titre) lines.push(`Titre : ${titre}`);
+  if (auteur) lines.push(`Auteur : ${auteur}`);
+  if (source) lines.push(`Source : ${source}`);
+
+  if (lines.length === 0) return '';
+
+  return `[MÉTADONNÉES DE LA PAGE]\n${lines.join('\n')}\n[FIN MÉTADONNÉES]\n\n`;
+}
+
+function extractTitre() {
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle?.content?.trim()) return ogTitle.content.trim();
+
+  const h1 = document.querySelector('h1');
+  if (h1?.textContent?.trim()) return h1.textContent.replace(/\s+/g, ' ').trim();
+
+  return '';
+}
+
+function extractAuteur() {
+  const metaAuthor = document.querySelector('meta[name="author"]');
+  if (metaAuthor?.content?.trim()) return metaAuthor.content.trim();
+
+  const relAuthor = document.querySelector('[rel="author"]');
+  if (relAuthor?.textContent?.trim()) return relAuthor.textContent.replace(/\s+/g, ' ').trim();
+
+  const classAuthor = document.querySelector('.author');
+  if (classAuthor?.textContent?.trim()) return classAuthor.textContent.replace(/\s+/g, ' ').trim();
+
+  const classContainsAuthor = document.querySelector('[class*="author"]');
+  if (classContainsAuthor?.textContent?.trim()) return classContainsAuthor.textContent.replace(/\s+/g, ' ').trim();
+
+  return '';
+}
+
+function extractSource() {
+  const ogSiteName = document.querySelector('meta[property="og:site_name"]');
+  if (ogSiteName?.content?.trim()) return ogSiteName.content.trim();
+
+  return '';
 }
 
 function extractWithReadability() {
