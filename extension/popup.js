@@ -172,16 +172,22 @@ async function saveKey(key) {
 async function loadArticlePreview() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   chrome.tabs.sendMessage(tab.id, { action: 'extractText' }, response => {
+    const warningEl = document.getElementById('extraction-warning');
+    const analyzeBtn = document.getElementById('analyze-btn');
     if (chrome.runtime.lastError || !response?.success) {
       document.getElementById('article-title').textContent = 'Impossible de lire cet article';
       document.getElementById('article-chars').textContent = "Vérifiez que vous êtes sur une page d'article";
+      analyzeBtn.disabled = true;
+      warningEl.style.display = 'block';
       return;
     }
     const { text, title } = response;
     document.getElementById('article-title').textContent = title || 'Article sans titre';
     document.getElementById('article-chars').textContent = `${text.length} caractères extraits`;
-    document.getElementById('analyze-btn').disabled = text.length < 200;
-    document.getElementById('analyze-btn').dataset.text = text;
+    const tooShort = text.length < 200;
+    analyzeBtn.disabled = tooShort;
+    analyzeBtn.dataset.text = text;
+    warningEl.style.display = tooShort ? 'block' : 'none';
   });
 }
 

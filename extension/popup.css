@@ -114,6 +114,40 @@ body {
   margin-bottom: 8px;
 }
 
+/* Avertissement extraction impossible / texte trop court */
+.extraction-warning {
+  background: #FEF3C7;
+  border: 1px solid #F59E0B;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.extraction-warning-text {
+  font-size: 11px;
+  color: #92400E;
+  line-height: 1.5;
+  margin-bottom: 0.625rem;
+}
+
+.btn-bayle-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #C9A84C;
+  color: #1A1A1A;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-bayle-cta:hover { opacity: 0.85; }
+
 .btn-analyze:disabled {
   opacity: 0.3;
   cursor: not-allowed;
