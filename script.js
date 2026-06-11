@@ -579,14 +579,21 @@ function cleanJSON(text) {
   return cleaned;
 }
 
-// Corrige une virgule manquante entre deux champs JSON (erreur fréquente de
-// Mistral : "}" suivi directement du "\"" du champ suivant sans séparateur).
 function fixMissingCommas(text) {
-  let fixed = text.replace(/}(\s*)"/g, '},$1"');
-  // Autre cas fréquent : une valeur string se termine en fin de ligne et la
-  // ligne suivante commence directement par la clé suivante, sans virgule.
-  fixed = fixed.replace(/"(\s*\n\s*)"/g, '",$1"');
-  return fixed;
+  // Stratégie : insérer des virgules manquantes entre deux tokens JSON valides
+  // en utilisant un remplacement itératif qui couvre tous les patterns Mistral
+  return text
+    // Cas 1 : } suivi de " (manque virgule entre objet et champ)
+    .replace(/}(\s*)"/g, '},$1"')
+    // Cas 2 : ] suivi de " (manque virgule entre tableau et champ)
+    .replace(/](\s*)"/g, '],$1"')
+    // Cas 3 : valeur string fermante suivie d'une nouvelle clé (le cas Le Monde)
+    // "valeur"\n  "clé" -> "valeur",\n  "clé"
+    .replace(/"(\s*\n\s*)"(?=[^:]*":)/g, '",$1"')
+    // Cas 4 : nombre ou booléen suivi d'une nouvelle clé
+    .replace(/(\d|true|false|null)(\s*\n\s*)"(?=[^:]*":)/g, '$1,$2"')
+    // Éviter les doubles virgules créées par les remplacements précédents
+    .replace(/,(\s*),/g, ',$1');
 }
 
 function el(tag, className, textContent) {
