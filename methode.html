@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bayle — Guide pratique pour apprendre à analyser un article de presse en 5 minutes : sources, faits, opinions, biais de cadrage, omissions, intérêts et vérification.">
+  <title>Bayle — Guide d'analyse d'un article de presse</title>
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Styles personnalisés -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-container">
+
+  <!-- ================================================================
+       EN-TÊTE
+       ================================================================ -->
+  <header class="site-header">
+    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.10;pointer-events:none;" viewBox="0 0 680 240" preserveAspectRatio="xMidYMid slice">
+      <line x1="0" y1="40" x2="680" y2="40" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="0" y1="80" x2="680" y2="80" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="0" y1="120" x2="680" y2="120" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="0" y1="160" x2="680" y2="160" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="0" y1="200" x2="680" y2="200" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="80" y1="0" x2="80" y2="240" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="180" y1="0" x2="180" y2="240" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="280" y1="0" x2="280" y2="240" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="380" y1="0" x2="380" y2="240" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="480" y1="0" x2="480" y2="240" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="580" y1="0" x2="580" y2="240" stroke="#FFF" stroke-width="0.5"/>
+      <circle cx="80" cy="40" r="3" fill="#FFF"/>
+      <circle cx="280" cy="80" r="3" fill="#FFF"/>
+      <circle cx="480" cy="40" r="3" fill="#FFF"/>
+      <circle cx="180" cy="120" r="3" fill="#FFF"/>
+      <circle cx="380" cy="160" r="3" fill="#FFF"/>
+      <circle cx="580" cy="120" r="3" fill="#FFF"/>
+      <polyline points="80,40 280,80 480,40 580,120" fill="none" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+    </svg>
+    <div class="header-content">
+      <p class="header-surtitre">Guide · Open source</p>
+      <h1 class="title-bayle">Bayle</h1>
+      <div class="header-gold-bar"></div>
+      <p class="site-subtitle">Comment analyser un article de presse en 5 minutes</p>
+      <a href="index.html" class="risk-back-link">← Retour à l'outil</a>
+    </div>
+  </header>
+
+  <!-- ================================================================
+       CONTENU
+       ================================================================ -->
+  <div class="risques-content">
+
+    <div class="risk-section">
+      <h2 class="risk-section-title">1. Qui parle ?</h2>
+      <div class="risk-section-body">
+        <p>Avant même de lire le contenu, posez-vous la question de la source : qui a écrit ce texte, et pour qui ?</p>
+        <ul>
+          <li><strong>L'auteur</strong> : un article signé par un journaliste a généralement une expertise vérifiable. Une tribune ou un édito signé par une personnalité extérieure (dirigeant d'entreprise, responsable politique, association) défend souvent un point de vue qui lui est favorable.</li>
+          <li><strong>Le média</strong> : chaque média a une ligne éditoriale, affichée ou implicite, qui influence le choix des sujets traités et l'angle retenu.</li>
+          <li><strong>Les affiliations</strong> : propriétaire du média, financements, partenaires, annonceurs. Ces liens peuvent orienter, consciemment ou non, le traitement de certains sujets.</li>
+        </ul>
+        <p><strong>Exemples concrets :</strong></p>
+        <ul>
+          <li>Une tribune « Pourquoi il faut simplifier le droit du travail », signée par le dirigeant d'une fédération patronale : l'angle correspond aux intérêts de l'auteur, ce qui ne le rend pas faux, mais doit être pris en compte.</li>
+          <li>Un article non signé sur un site se présentant comme « média d'investigation indépendant » : la page « Qui sommes-nous » ou les mentions légales permettent souvent de mieux comprendre qui le détient et quelle ligne éditoriale il défend.</li>
+          <li>Un « expert » cité dans un article sur la 5G, présenté uniquement comme « chercheur », alors qu'il est aussi consultant rémunéré par un opérateur télécom : ce lien d'intérêt change la portée de ses propos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risk-section">
+      <h2 class="risk-section-title">2. Faits ou opinions ?</h2>
+      <div class="risk-section-body">
+        <p>Un même article mélange souvent des affirmations vérifiables et des jugements de valeur. Apprendre à les distinguer est la base de la lecture critique.</p>
+        <ul>
+          <li><strong>Un fait vérifiable</strong> s'appuie sur des données, des dates, des citations exactes, des événements qui peuvent être confirmés par d'autres sources.</li>
+          <li><strong>Une opinion</strong> exprime un jugement de valeur, une interprétation ou une anticipation. Elle n'est ni vraie ni fausse en soi, mais doit être identifiée comme telle.</li>
+          <li>Repérez les verbes et adjectifs qui signalent un jugement (« scandaleux », « courageux », « inquiétant ») par opposition aux chiffres, dates et citations directes.</li>
+        </ul>
+        <p><strong>Exemples concrets :</strong></p>
+        <ul>
+          <li>« Le Parlement a adopté le texte par 312 voix contre 240 » : fait vérifiable (chiffre, date, événement précis).</li>
+          <li>« Cette décision est une victoire historique pour les défenseurs de l'environnement » : opinion, jugement de valeur sur la portée de la décision.</li>
+          <li>« Selon plusieurs experts, cette mesure serait inefficace » : sans préciser qui sont ces experts ni combien ils sont, la formulation mélange une apparence de fait (consensus d'experts) et une affirmation non sourcée.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risk-section">
+      <h2 class="risk-section-title">3. Les biais de cadrage</h2>
+      <div class="risk-section-body">
+        <p>Le « cadrage » désigne la façon dont un sujet est présenté : les mots choisis, l'angle retenu et les procédés rhétoriques utilisés influencent la perception du lecteur, souvent avant même qu'il ait lu les arguments.</p>
+        <ul>
+          <li><strong>Mots chargés</strong> : certains mots portent une connotation positive ou négative qui oriente le jugement.</li>
+          <li><strong>Choix d'angle</strong> : un même événement peut être présenté très différemment selon ce qui est mis en avant ou en titre.</li>
+          <li><strong>Procédés rhétoriques</strong> : généralisations, faux dilemmes, appels à l'émotion ou à la peur peuvent remplacer l'argumentation factuelle.</li>
+        </ul>
+        <p><strong>Exemples concrets :</strong></p>
+        <ul>
+          <li>« Régime » (connotation autoritaire, négative) contre « gouvernement » (neutre) pour désigner la même autorité politique selon le pays dont on parle.</li>
+          <li>Titre « Polémique autour de la réforme des retraites » contre « La réforme des retraites suscite des critiques de syndicats et de l'opposition » : le mot « polémique » donne une impression de confusion généralisée, alors que la seconde formulation précise qui critique et pourquoi.</li>
+          <li>Faux dilemme : « Soit on accepte cette réforme, soit le système s'effondre dans dix ans » — présente deux issues extrêmes en ignorant les positions intermédiaires.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risk-section">
+      <h2 class="risk-section-title">4. Ce qui est omis</h2>
+      <div class="risk-section-body">
+        <p>Ce qu'un article ne dit pas est parfois aussi important que ce qu'il dit. Une information factuellement exacte peut donner une impression trompeuse si elle est présentée hors contexte.</p>
+        <ul>
+          <li><strong>Contexte manquant</strong> : un chiffre ou un événement isolé peut donner une impression différente une fois replacé dans son évolution sur plusieurs années ou comparé à d'autres pays.</li>
+          <li><strong>Contre-arguments ignorés</strong> : un article qui ne donne la parole qu'à un seul camp offre une image partielle du débat.</li>
+          <li><strong>Sources alternatives non citées</strong> : l'absence de référence à des études ou rapports qui nuanceraient le propos est un signal à surveiller.</li>
+        </ul>
+        <p><strong>Exemples concrets :</strong></p>
+        <ul>
+          <li>Un titre « La criminalité explose dans cette ville » sans préciser que la hausse concerne une catégorie précise d'infractions, ou qu'elle est comparable à celle des villes voisines.</li>
+          <li>Un compte-rendu d'une annonce gouvernementale qui ne cite aucune réaction de l'opposition, des syndicats ou de la société civile, alors que ces réactions existent et sont publiques.</li>
+          <li>Un bilan économique mettant en avant la croissance du PIB sans mentionner l'évolution des inégalités ou du pouvoir d'achat sur la même période.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risk-section">
+      <h2 class="risk-section-title">5. À qui ça profite ?</h2>
+      <div class="risk-section-body">
+        <p>Un discours sert toujours, directement ou indirectement, des intérêts. Identifier qui profiterait de ce que le lecteur croie ou fasse aide à évaluer la neutralité d'un texte.</p>
+        <ul>
+          <li><strong>Intérêts économiques</strong> : qui gagnerait financièrement si le lecteur était convaincu par cet article ?</li>
+          <li><strong>Intérêts politiques</strong> : l'article sert-il à renforcer une position, discréditer un adversaire, ou détourner l'attention d'un autre sujet ?</li>
+          <li><strong>Sources citées</strong> : vérifiez qui sont les « experts », « études » ou « rapports » cités, et qui les finance.</li>
+        </ul>
+        <p><strong>Exemples concrets :</strong></p>
+        <ul>
+          <li>Un article défendant une baisse d'impôts pour les entreprises qui cite exclusivement des économistes affiliés à un think tank financé par des fédérations patronales.</li>
+          <li>Une étude présentée comme « indépendante » sur l'efficacité d'un médicament, dont le financement provient en réalité du laboratoire qui le commercialise.</li>
+          <li>Un article reprenant quasi mot pour mot un communiqué de presse d'une entreprise ou d'un ministère, sans recul ni questionnement : un signe que l'article relaie un message plutôt qu'il ne l'analyse.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risk-section">
+      <h2 class="risk-section-title">6. Comment vérifier ?</h2>
+      <div class="risk-section-body">
+        <p>La lecture critique ne s'arrête pas à l'identification des biais : elle se complète par une démarche active de vérification.</p>
+        <ul>
+          <li><strong>Sources primaires</strong> : rapports officiels, données statistiques publiques, comptes rendus de séance, jugements — autant de documents accessibles directement, sans passer par un intermédiaire.</li>
+          <li><strong>Croisement de sources</strong> : comparer le traitement d'un même sujet par plusieurs médias de lignes éditoriales différentes permet de repérer les angles et les omissions propres à chacun.</li>
+          <li><strong>Outils de vérification</strong> : services de fact-checking, recherche d'image inversée, archives du web.</li>
+        </ul>
+        <p><strong>Exemples concrets :</strong></p>
+        <ul>
+          <li>Pour un chiffre économique ou démographique, consulter directement les données de l'INSEE, de la Banque de France ou d'Eurostat plutôt que de se fier au chiffre repris dans l'article.</li>
+          <li>Lire le traitement d'un même événement par deux ou trois médias reconnus pour avoir des lignes éditoriales différentes, afin de comparer les angles retenus.</li>
+          <li>Utiliser des services de vérification comme AFP Factuel, CheckNews (Libération) ou Les Décodeurs (Le Monde), ainsi que la recherche d'image inversée (Google Images, TinEye) pour vérifier l'origine d'une photo ou d'une vidéo.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================================================================
+       PIED DE PAGE
+       ================================================================ -->
+  <footer class="site-footer">
+    <p>
+      <a href="https://github.com/ScobLab/bayle" target="_blank" rel="noopener noreferrer">Code source</a>
+      &nbsp;·&nbsp;
+      <a href="PROMPT.md" target="_blank">Prompt d'analyse (public)</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/ScobLab/bayle/issues" target="_blank" rel="noopener noreferrer">Signaler un problème</a>
+    </p>
+    <p style="margin-top: 0.5rem;">Licence MIT &nbsp;·&nbsp; Aucun tracking, aucun cookie</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
