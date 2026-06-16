@@ -365,6 +365,30 @@ body {
 }
 
 /* ================================================================
+   LIEN MÉTHODE (haut de page)
+   ================================================================ */
+
+.methode-link-banner {
+  margin: 0 1.25rem 1.25rem;
+  text-align: center;
+}
+
+.methode-link-anchor {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  text-decoration: none;
+  border-bottom: 2px solid #C9A84C;
+  padding-bottom: 2px;
+  transition: color 0.15s;
+}
+
+.methode-link-anchor:hover {
+  color: #C9A84C;
+}
+
+/* ================================================================
    LOADING ET ERREURS
    ================================================================ */
 
