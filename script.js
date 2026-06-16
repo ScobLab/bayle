@@ -122,19 +122,22 @@ const VIGILANCE_MESSAGES = {
 // RÉFÉRENCES DOM
 // ====================================================================
 let demoCardsEl, apiKeyInput, clearKeyBtn, articleText, analyzeBtn,
-    resultZone, charCount, loadingZone, errorZone, apiTutorialBox;
+    resultZone, charCount, loadingZone, errorZone, apiTutorialBox,
+    apiKeySavedEl, apiKeyInputZone;
 
 document.addEventListener('DOMContentLoaded', () => {
-  demoCardsEl    = document.getElementById('demo-cards');
-  apiKeyInput    = document.getElementById('api-key');
-  clearKeyBtn    = document.getElementById('clear-key');
-  articleText    = document.getElementById('article-text');
-  analyzeBtn     = document.getElementById('analyze-btn');
-  resultZone     = document.getElementById('result-zone');
-  charCount      = document.getElementById('char-count');
-  loadingZone    = document.getElementById('loading-zone');
-  errorZone      = document.getElementById('error-zone');
-  apiTutorialBox = document.getElementById('api-tutorial-box');
+  demoCardsEl     = document.getElementById('demo-cards');
+  apiKeyInput     = document.getElementById('api-key');
+  clearKeyBtn     = document.getElementById('clear-key');
+  articleText     = document.getElementById('article-text');
+  analyzeBtn      = document.getElementById('analyze-btn');
+  resultZone      = document.getElementById('result-zone');
+  charCount       = document.getElementById('char-count');
+  loadingZone     = document.getElementById('loading-zone');
+  errorZone       = document.getElementById('error-zone');
+  apiTutorialBox  = document.getElementById('api-tutorial-box');
+  apiKeySavedEl   = document.getElementById('api-key-saved');
+  apiKeyInputZone = document.getElementById('api-key-input-zone');
 
   loadDemos();
   setupForm();
@@ -207,12 +210,24 @@ function setupForm() {
     localStorage.removeItem('bayle_api_key');
     apiKeyInput.value = '';
     refreshAnalyzeBtn();
-    refreshTutorialVisibility();
+    refreshKeyDisplay();
   });
 
   apiKeyInput.addEventListener('blur', () => {
     const key = apiKeyInput.value.trim();
-    if (key) localStorage.setItem('bayle_api_key', key);
+    if (key) {
+      localStorage.setItem('bayle_api_key', key);
+      refreshKeyDisplay();
+    }
+  });
+
+  document.getElementById('change-key-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem('bayle_api_key');
+    apiKeyInput.value = '';
+    refreshAnalyzeBtn();
+    refreshKeyDisplay();
+    apiKeyInput.focus();
   });
 }
 
@@ -222,6 +237,13 @@ function restoreSavedKey() {
     apiKeyInput.value = saved;
     refreshAnalyzeBtn();
   }
+  refreshKeyDisplay();
+}
+
+function refreshKeyDisplay() {
+  const hasKey = !!apiKeyInput.value.trim();
+  if (apiKeySavedEl)   apiKeySavedEl.style.display   = hasKey ? '' : 'none';
+  if (apiKeyInputZone) apiKeyInputZone.style.display  = hasKey ? 'none' : '';
   refreshTutorialVisibility();
 }
 

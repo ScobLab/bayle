@@ -95,32 +95,43 @@
     <p class="form-section-title">Analyser un article</p>
 
     <!-- Clé API -->
-    <div class="form-group">
-      <label for="api-key" class="form-label">Clé API</label>
-      <div class="api-key-row">
-        <input
-          type="password"
-          id="api-key"
-          class="form-input"
-          placeholder="Collez votre clé API Mistral ici"
-          autocomplete="off"
-          spellcheck="false"
-        >
-        <button type="button" id="clear-key" class="btn-clear" aria-label="Effacer la clé API enregistrée">
-          Effacer ma clé
-        </button>
+    <div class="form-group" id="api-key-group">
+
+      <!-- Indicateur : clé enregistrée (masqué par défaut) -->
+      <div id="api-key-saved" class="api-key-saved-indicator" style="display:none;">
+        <span>✓ Clé API enregistrée</span>
+        <a href="#" id="change-key-link" class="api-key-change-link">Changer / effacer</a>
       </div>
-      <div class="api-tutorial-box" id="api-tutorial-box">
-        <p class="api-tutorial-title">Pas encore de clé API ? C'est gratuit et ça prend 1 minute</p>
-        <ol class="api-tutorial-steps">
-          <li>Rendez-vous sur <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer">console.mistral.ai/api-keys</a></li>
-          <li>Cliquez sur "Créer une nouvelle clé"</li>
-          <li>Donnez-lui un nom (ex : "Bayle") et cliquez sur "Créer"</li>
-          <li>Copiez immédiatement la clé affichée — elle ne sera plus visible ensuite</li>
-          <li>Collez-la dans le champ ci-dessus</li>
-        </ol>
-        <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer" class="btn-tutorial-gold">Créer ma clé API Mistral gratuitement →</a>
+
+      <!-- Zone de saisie (visible par défaut) -->
+      <div id="api-key-input-zone">
+        <label for="api-key" class="form-label">Clé API</label>
+        <div class="api-key-row">
+          <input
+            type="password"
+            id="api-key"
+            class="form-input"
+            placeholder="Collez votre clé API Mistral ici"
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button type="button" id="clear-key" class="btn-clear" aria-label="Effacer la clé API enregistrée">
+            Effacer ma clé
+          </button>
+        </div>
+        <div class="api-tutorial-box" id="api-tutorial-box">
+          <p class="api-tutorial-title">Pas encore de clé API ? C'est gratuit et ça prend 1 minute</p>
+          <ol class="api-tutorial-steps">
+            <li>Rendez-vous sur <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer">console.mistral.ai/api-keys</a></li>
+            <li>Cliquez sur "Créer une nouvelle clé"</li>
+            <li>Donnez-lui un nom (ex : "Bayle") et cliquez sur "Créer"</li>
+            <li>Copiez immédiatement la clé affichée — elle ne sera plus visible ensuite</li>
+            <li>Collez-la dans le champ ci-dessus</li>
+          </ol>
+          <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer" class="btn-tutorial-gold">Créer ma clé API Mistral gratuitement →</a>
+        </div>
       </div>
+
     </div>
 
     <!-- Zone de texte -->
