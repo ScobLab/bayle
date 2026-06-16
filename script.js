@@ -122,18 +122,19 @@ const VIGILANCE_MESSAGES = {
 // RÉFÉRENCES DOM
 // ====================================================================
 let demoCardsEl, apiKeyInput, clearKeyBtn, articleText, analyzeBtn,
-    resultZone, charCount, loadingZone, errorZone;
+    resultZone, charCount, loadingZone, errorZone, apiTutorialBox;
 
 document.addEventListener('DOMContentLoaded', () => {
-  demoCardsEl  = document.getElementById('demo-cards');
-  apiKeyInput  = document.getElementById('api-key');
-  clearKeyBtn  = document.getElementById('clear-key');
-  articleText  = document.getElementById('article-text');
-  analyzeBtn   = document.getElementById('analyze-btn');
-  resultZone   = document.getElementById('result-zone');
-  charCount    = document.getElementById('char-count');
-  loadingZone  = document.getElementById('loading-zone');
-  errorZone    = document.getElementById('error-zone');
+  demoCardsEl    = document.getElementById('demo-cards');
+  apiKeyInput    = document.getElementById('api-key');
+  clearKeyBtn    = document.getElementById('clear-key');
+  articleText    = document.getElementById('article-text');
+  analyzeBtn     = document.getElementById('analyze-btn');
+  resultZone     = document.getElementById('result-zone');
+  charCount      = document.getElementById('char-count');
+  loadingZone    = document.getElementById('loading-zone');
+  errorZone      = document.getElementById('error-zone');
+  apiTutorialBox = document.getElementById('api-tutorial-box');
 
   loadDemos();
   setupForm();
@@ -191,7 +192,10 @@ function appendDemoCard(data, index) {
 // FORMULAIRE
 // ====================================================================
 function setupForm() {
-  apiKeyInput.addEventListener('input', refreshAnalyzeBtn);
+  apiKeyInput.addEventListener('input', () => {
+    refreshAnalyzeBtn();
+    refreshTutorialVisibility();
+  });
   articleText.addEventListener('input', () => {
     refreshAnalyzeBtn();
     refreshCharCount();
@@ -203,6 +207,7 @@ function setupForm() {
     localStorage.removeItem('bayle_api_key');
     apiKeyInput.value = '';
     refreshAnalyzeBtn();
+    refreshTutorialVisibility();
   });
 
   apiKeyInput.addEventListener('blur', () => {
@@ -217,6 +222,12 @@ function restoreSavedKey() {
     apiKeyInput.value = saved;
     refreshAnalyzeBtn();
   }
+  refreshTutorialVisibility();
+}
+
+function refreshTutorialVisibility() {
+  if (!apiTutorialBox) return;
+  apiTutorialBox.style.display = apiKeyInput.value.trim() ? 'none' : '';
 }
 
 function refreshAnalyzeBtn() {
