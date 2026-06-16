@@ -425,3 +425,27 @@ body {
   margin-bottom: 1rem;
   line-height: 1.5;
 }
+
+/* Footer Ko-fi */
+.popup-footer {
+  border-top: 1px solid #EEE;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+}
+
+.popup-kofi-link {
+  font-size: 11px;
+  color: #BBB;
+  text-decoration: none;
+}
+
+.popup-kofi-link:hover {
+  color: #1A1A1A;
+  text-decoration: underline;
+}
+
+/* Bouton copier (popup) */
+.btn-copy-popup {
+  margin-top: 8px;
+  margin-bottom: 6px;
+}

@@ -365,6 +365,30 @@ body {
 }
 
 /* ================================================================
+   BOUTON COPIER L'ANALYSE
+   ================================================================ */
+
+.btn-copy {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 0.75rem;
+  padding: 5px 12px;
+  background: transparent;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: #888;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-copy:hover {
+  border-color: #1A1A1A;
+  color: #1A1A1A;
+}
+
+/* ================================================================
    LIEN MÉTHODE (haut de page)
    ================================================================ */
 

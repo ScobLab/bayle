@@ -196,6 +196,10 @@ async function loadArticlePreview() {
 // ====================================================================
 async function analyzeArticle(text) {
   const key = await getStoredKey();
+  const author = document.getElementById('author-input')?.value.trim();
+  const textWithAuthor = author
+    ? `[INFORMATION FOURNIE PAR L'UTILISATEUR] Auteur/source : ${author}\n\n${text}`
+    : text;
   showState('loading');
 
   let response;
@@ -210,7 +214,7 @@ async function analyzeArticle(text) {
         model: MISTRAL_MODEL,
         messages: [
           { role: 'system', content: ANALYSIS_PROMPT },
-          { role: 'user', content: `<article_a_analyser>\n${text}\n</article_a_analyser>` }
+          { role: 'user', content: `<article_a_analyser>\n${textWithAuthor}\n</article_a_analyser>` }
         ],
         max_tokens: 4500,
         temperature: 0.1,
@@ -290,6 +294,25 @@ function showResult(analysis) {
       `<a href="https://scoblab.github.io/bayle/risques.html" target="_blank" class="open-tab-link" style="margin-top:4px;">En savoir plus ↗</a>`;
     container.appendChild(encart);
   }
+
+  // Bouton Copier l'analyse
+  const existingCopyBtn = document.getElementById('copy-analysis-btn');
+  if (existingCopyBtn) existingCopyBtn.remove();
+  const copyBtn = document.createElement('button');
+  copyBtn.id = 'copy-analysis-btn';
+  copyBtn.className = 'btn-secondary btn-copy-popup';
+  copyBtn.textContent = 'Copier l\'analyse';
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(buildCopyText(analysis)).then(() => {
+      copyBtn.textContent = 'Copié !';
+      setTimeout(() => { copyBtn.textContent = 'Copier l\'analyse'; }, 2000);
+    }).catch(() => {
+      copyBtn.textContent = 'Erreur copie';
+      setTimeout(() => { copyBtn.textContent = 'Copier l\'analyse'; }, 2000);
+    });
+  });
+  const backBtn = document.getElementById('back-btn');
+  backBtn.parentNode.insertBefore(copyBtn, backBtn);
 
   showState('result');
 }
@@ -451,6 +474,81 @@ function showRawResponse(rawText) {
     </div>
   `;
   showState('result');
+}
+
+function buildCopyText(analysis) {
+  const lines = [];
+  lines.push('BAYLE — Analyse critique');
+  lines.push(`https://scoblab.github.io/bayle/ — ${new Date().toISOString()}`);
+  lines.push('');
+
+  if (analysis.fiabilité_globale) {
+    const f = analysis.fiabilité_globale;
+    lines.push('== FIABILITÉ GLOBALE ==');
+    lines.push(`Score : ${f.score_sur_10}/10`);
+    if (f.justification) lines.push(f.justification);
+    if (f.ce_que_le_lecteur_devrait_creuser) lines.push(`À approfondir : ${f.ce_que_le_lecteur_devrait_creuser}`);
+    lines.push('');
+  }
+  if (analysis.locuteur) {
+    const l = analysis.locuteur;
+    lines.push('== LOCUTEUR ==');
+    lines.push(`Identification : ${l.identification || '—'}`);
+    lines.push(`Affiliations connues : ${l.affiliations_connues || '—'}`);
+    lines.push(`Intérêts potentiels : ${l.intérêts_potentiels || '—'}`);
+    lines.push('');
+  }
+  if (analysis.faits_vs_opinions) {
+    const fo = analysis.faits_vs_opinions;
+    lines.push('== FAITS ET OPINIONS ==');
+    if (fo.faits_vérifiables?.length) { lines.push('Faits vérifiables :'); fo.faits_vérifiables.forEach(x => lines.push(`  • ${x}`)); }
+    if (fo.opinions_assumées?.length) { lines.push('Opinions assumées :'); fo.opinions_assumées.forEach(x => lines.push(`  • ${x}`)); }
+    if (fo.opinions_déguisées_en_faits?.length) { lines.push('Opinions déguisées en faits :'); fo.opinions_déguisées_en_faits.forEach(x => lines.push(`  • ${x}`)); }
+    lines.push('');
+  }
+  if (analysis.vérifications) {
+    const v = analysis.vérifications;
+    lines.push('== VÉRIFICATIONS ==');
+    if (v.affirmations_solides?.length) { lines.push('Affirmations solides :'); v.affirmations_solides.forEach(x => lines.push(`  • ${x}`)); }
+    if (v.affirmations_à_nuancer?.length) { lines.push('À nuancer :'); v.affirmations_à_nuancer.forEach(x => lines.push(`  • ${x}`)); }
+    if (v.affirmations_problématiques?.length) { lines.push('Problématiques :'); v.affirmations_problématiques.forEach(x => lines.push(`  • ${x}`)); }
+    if (v.limites_de_ma_vérification) lines.push(`Limites : ${v.limites_de_ma_vérification}`);
+    lines.push('');
+  }
+  if (analysis.intérêts_servis) {
+    const i = analysis.intérêts_servis;
+    lines.push('== INTÉRÊTS SERVIS ==');
+    lines.push(`À qui ce discours profite : ${i['à_qui_ce_discours_profite'] || '—'}`);
+    lines.push(`Objectifs probables : ${i.objectifs_probables || '—'}`);
+    lines.push(`Public cible : ${i.public_cible || '—'}`);
+    lines.push('');
+  }
+  if (analysis.biais_de_cadrage) {
+    const b = analysis.biais_de_cadrage;
+    lines.push('== BIAIS DE CADRAGE ==');
+    if (b.mots_chargés?.length) { lines.push('Mots chargés :'); b.mots_chargés.forEach(x => lines.push(`  • ${x}`)); }
+    if (b.choix_d_angle) lines.push(`Angle privilégié / évité : ${b.choix_d_angle}`);
+    if (b.structure_rhétorique) lines.push(`Structure rhétorique : ${b.structure_rhétorique}`);
+    lines.push('');
+  }
+  if (analysis.omissions) {
+    const o = analysis.omissions;
+    lines.push('== OMISSIONS NOTABLES ==');
+    if (o.informations_manquantes?.length) { lines.push('Informations manquantes :'); o.informations_manquantes.forEach(x => lines.push(`  • ${x}`)); }
+    if (o['contre-arguments_absents']?.length) { lines.push('Contre-arguments absents :'); o['contre-arguments_absents'].forEach(x => lines.push(`  • ${x}`)); }
+    lines.push('');
+  }
+  if (analysis.contre_points_légitimes) {
+    lines.push('== POINTS DE VUE LÉGITIMES ALTERNATIFS ==');
+    lines.push(String(analysis.contre_points_légitimes));
+    lines.push('');
+  }
+  if (analysis.vigilance_recommandée) {
+    lines.push('== VIGILANCE RECOMMANDÉE ==');
+    lines.push(`Niveau : ${analysis.vigilance_recommandée.niveau || '—'}`);
+    if (analysis.vigilance_recommandée.justification) lines.push(analysis.vigilance_recommandée.justification);
+  }
+  return lines.join('\n');
 }
 
 function escapeHtml(str) {
