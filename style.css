@@ -739,6 +739,48 @@ body {
 }
 
 /* ================================================================
+   EXTENSION NAVIGATEUR (promo)
+   ================================================================ */
+
+.extension-promo {
+  margin: 2rem 1.25rem;
+  padding: 1.25rem;
+  background: #F0EDE6;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+}
+
+.extension-promo-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1A1A1A;
+  margin: 0 0 0.5rem;
+}
+
+.extension-promo-desc {
+  font-size: 0.875rem;
+  color: #4B4B4B;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+.extension-promo-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  text-decoration: none;
+  border-bottom: 2px solid #C9A84C;
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+
+.extension-promo-link:hover {
+  color: #C9A84C;
+}
+
+/* ================================================================
    PIED DE PAGE
    ================================================================ */
 
