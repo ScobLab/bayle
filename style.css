@@ -739,40 +739,42 @@ body {
 }
 
 /* ================================================================
-   EXTENSION NAVIGATEUR (promo)
+   EXTENSION NAVIGATEUR (promo compacte)
    ================================================================ */
 
 .extension-promo {
-  margin: 2rem 1.25rem;
-  padding: 1.25rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin: 0 1.25rem 1.5rem;
+  padding: 0.5rem 0.875rem;
   background: #F0EDE6;
   border: 1px solid #DDD;
   border-radius: 4px;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
 .extension-promo-title {
-  font-size: 0.8rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: #1A1A1A;
-  margin: 0 0 0.5rem;
+  white-space: nowrap;
 }
 
 .extension-promo-desc {
-  font-size: 0.875rem;
   color: #4B4B4B;
-  line-height: 1.6;
-  margin: 0 0 0.75rem;
+  flex: 1;
+  min-width: 150px;
 }
 
 .extension-promo-link {
-  font-size: 0.875rem;
   font-weight: 600;
   color: #1A1A1A;
   text-decoration: none;
-  border-bottom: 2px solid #C9A84C;
+  border-bottom: 1.5px solid #C9A84C;
   padding-bottom: 1px;
+  white-space: nowrap;
   transition: color 0.15s;
 }
 
