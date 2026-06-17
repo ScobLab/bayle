@@ -223,11 +223,12 @@ function setupForm() {
 
   document.getElementById('change-key-link')?.addEventListener('click', (e) => {
     e.preventDefault();
-    localStorage.removeItem('bayle_api_key');
-    apiKeyInput.value = '';
-    refreshAnalyzeBtn();
-    refreshKeyDisplay();
+    // Réafficher la zone de saisie avec la clé actuelle — pas de suppression
+    if (apiKeySavedEl)   apiKeySavedEl.style.display   = 'none';
+    if (apiKeyInputZone) apiKeyInputZone.style.display  = '';
+    if (apiTutorialBox)  apiTutorialBox.style.display   = 'none';
     apiKeyInput.focus();
+    apiKeyInput.select();
   });
 }
 
