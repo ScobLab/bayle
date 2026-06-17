@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayle</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- EN-TÊTE -->
+  <header class="popup-header">
+    <svg class="popup-header-grid" viewBox="0 0 420 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <line x1="0" y1="30" x2="420" y2="30" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="0" y1="70" x2="420" y2="70" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="0" y1="110" x2="420" y2="110" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="60" y1="0" x2="60" y2="140" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="160" y1="0" x2="160" y2="140" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="260" y1="0" x2="260" y2="140" stroke="#FFF" stroke-width="0.5"/>
+      <line x1="360" y1="0" x2="360" y2="140" stroke="#FFF" stroke-width="0.5"/>
+      <circle cx="60" cy="30" r="2" fill="#FFF"/>
+      <circle cx="260" cy="70" r="2" fill="#FFF"/>
+      <circle cx="160" cy="110" r="2" fill="#FFF"/>
+      <circle cx="360" cy="30" r="2" fill="#FFF"/>
+      <polyline points="60,30 260,70 360,30" fill="none" stroke="#FFF" stroke-width="1" opacity="0.5"/>
+    </svg>
+    <div class="popup-header-content">
+      <div class="popup-surtitre">Outil d'analyse · Open source</div>
+      <h1 class="popup-title">Bayle</h1>
+      <div class="popup-gold-bar"></div>
+    </div>
+  </header>
+
+  <!-- ÉTAT : PAS DE CLÉ API -->
+  <div id="state-no-key" class="popup-state">
+    <p class="popup-intro">Pour analyser des articles, vous avez besoin d'une clé API Mistral gratuite.</p>
+    <div class="form-group">
+      <label class="form-label">Clé API Mistral</label>
+      <div class="key-row">
+        <input type="password" id="api-key-input" class="form-input" placeholder="Collez votre clé API Mistral ici" autocomplete="off">
+        <button id="save-key-btn" class="btn-primary">Enregistrer</button>
+      </div>
+      <details class="tutorial">
+        <summary class="tutorial-toggle">Pas encore de clé ? Créez-en une gratuitement ▸</summary>
+        <div class="tutorial-body">
+          <ol>
+            <li>Rendez-vous sur <a href="https://console.mistral.ai/api-keys" target="_blank">console.mistral.ai/api-keys</a></li>
+            <li>Cliquez sur "Créer une nouvelle clé"</li>
+            <li>Donnez-lui un nom (ex : "Bayle") et cliquez sur "Créer"</li>
+            <li>Copiez immédiatement la clé affichée</li>
+            <li>Collez-la dans le champ ci-dessus</li>
+          </ol>
+          <p>Gratuit, sans carte bancaire.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- ÉTAT : PRÊT À ANALYSER -->
+  <div id="state-ready" class="popup-state" style="display:none;">
+    <div class="article-preview" id="article-preview">
+      <span class="article-preview-title" id="article-title">Chargement de l'article...</span>
+      <span class="article-preview-chars" id="article-chars"></span>
+    </div>
+    <div id="extraction-warning" class="extraction-warning" style="display:none;">
+      <p class="extraction-warning-text">L'article n'a pas pu être extrait automatiquement (page payante ou protection active). Copiez le texte de l'article et collez-le directement sur le site Bayle pour l'analyser.</p>
+      <a id="open-bayle-site-btn" href="https://scoblab.github.io/bayle/" target="_blank" class="btn-bayle-cta">Ouvrir le site Bayle ↗</a>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="author-input">Auteur / source (optionnel)</label>
+      <input type="text" id="author-input" class="form-input" placeholder="Ex : Georges Duby, Le Monde...">
+    </div>
+    <button id="analyze-btn" class="btn-analyze" disabled>Analyser cet article</button>
+    <button id="change-key-btn" class="btn-secondary">Changer de clé API</button>
+    <a id="open-tab-link" href="https://scoblab.github.io/bayle/" target="_blank" class="open-tab-link">Ouvrir dans un onglet ↗</a>
+  </div>
+
+  <!-- ÉTAT : CHARGEMENT -->
+  <div id="state-loading" class="popup-state" style="display:none;">
+    <div class="loading-block">
+      <div class="loading-spinner"></div>
+      <p>Analyse en cours, environ 30 secondes...</p>
+    </div>
+  </div>
+
+  <!-- ÉTAT : RÉSULTAT -->
+  <div id="state-result" class="popup-state" style="display:none;">
+    <div id="result-content"></div>
+    <button id="back-btn" class="btn-secondary" style="margin-top:1rem;">← Analyser un autre article</button>
+  </div>
+
+  <!-- ÉTAT : ERREUR -->
+  <div id="state-error" class="popup-state" style="display:none;">
+    <div class="error-block" id="error-message"></div>
+    <button id="retry-btn" class="btn-secondary">Réessayer</button>
+  </div>
+
+  <div class="popup-footer">
+    <a href="https://ko-fi.com/scoblab" target="_blank" rel="noopener noreferrer" class="popup-kofi-link">Soutenir le projet ☕</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
