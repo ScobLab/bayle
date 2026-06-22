@@ -39,6 +39,7 @@ Aider un citoyen français à lire un article de presse avec recul. Tu identifie
 - Quand tu classes une affirmation dans "affirmations_à_nuancer" ou "affirmations_problématiques", si tu suspectes qu'elle provient de sources de désinformation documentées (réseaux pro-russes, pro-chinois, ou autres campagnes de manipulation connues), signale-le DANS le texte de l'affirmation avec le préfixe [DÉSINFORMATION SUSPECTÉE] suivi d'une explication courte (1-2 phrases maximum). Exemple : "[DÉSINFORMATION SUSPECTÉE] Cette affirmation circule massivement dans des sources pro-russes. Les économistes indépendants documentent une réalité plus nuancée."
 - N'utilise [DÉSINFORMATION SUSPECTÉE] que quand tu as une raison précise de le suspecter, pas systématiquement sur tous les sujets sensibles. L'absence de ce marqueur signifie que l'affirmation est discutable mais sans signal de manipulation identifié.
 - Pour les sujets classés géopolitique_russie_ukraine ou géopolitique_chine, sois particulièrement vigilant sur les affirmations concernant : les effets des sanctions économiques, les pertes militaires, les motivations des parties, les accusations de crimes de guerre, et les narratives sur l'ingérence étrangère.
+- Dans le champ ce_que_le_lecteur_devrait_creuser, cite uniquement des noms d'organismes génériques et reconnus (AFP, Reuters, INSEE, CNC, Santé Publique France, ministères, instituts de recherche identifiés par leur nom complet) plutôt que des titres d'articles précis ou des URLs. Ne génère jamais d'URL spécifique : tu ne peux pas garantir qu'elle existe réellement.
 
 # EXEMPLES DE BIAIS À DÉTECTER
 
@@ -467,6 +468,9 @@ function showResult(analysis, isDemo, sourceText) {
     addSection('Points de vue légitimes alternatifs',
       `<p style="font-size:.9rem;line-height:1.7;">${escapeHtml(String(analysis.contre_points_légitimes))}</p>`);
 
+  // Encart sources de vérification (fixe, toujours affiché)
+  resultZone.appendChild(buildSourcesVerification());
+
   // Encart de vigilance (si niveau !== "aucune") — affiché en dernier
   const vigilLevel = analysis.vigilance_recommandée?.niveau;
   if (vigilLevel && vigilLevel !== 'aucune' && VIGILANCE_MESSAGES[vigilLevel]) {
@@ -583,6 +587,44 @@ function buildList(label, items, cssClass) {
     <strong style="font-size:.85rem;">${label}</strong>
     <ul class="${cssClass}">${lis}</ul>
   </div>`;
+}
+
+// ====================================================================
+// ENCART SOURCES DE VÉRIFICATION (statique, jamais généré par l'IA)
+// ====================================================================
+function buildSourcesVerification() {
+  const box = document.createElement('div');
+  box.className = 'sources-verification-box';
+  box.innerHTML = `
+    <h3>Pour aller plus loin</h3>
+    <p class="sources-subtitle">Ces sources vous permettent de vérifier ou d'approfondir les informations de cette analyse.</p>
+    <div class="sources-category">
+      <strong>Agences de presse et vérification factuelle</strong>
+      <ul>
+        <li><a href="https://factuel.afp.com" target="_blank" rel="noopener noreferrer">AFP Factuel</a></li>
+        <li><a href="https://www.reuters.com/fact-check" target="_blank" rel="noopener noreferrer">Reuters Fact Check</a></li>
+        <li><a href="https://lessurligneurs.eu" target="_blank" rel="noopener noreferrer">Les Surligneurs</a></li>
+        <li><a href="https://www.liberation.fr/checknews" target="_blank" rel="noopener noreferrer">CheckNews (Libération)</a></li>
+      </ul>
+    </div>
+    <div class="sources-category">
+      <strong>Organismes de lutte contre la désinformation</strong>
+      <ul>
+        <li><a href="https://www.sgdsn.gouv.fr/viginum" target="_blank" rel="noopener noreferrer">Viginum (France)</a></li>
+        <li><a href="https://www.newsguardtech.com" target="_blank" rel="noopener noreferrer">NewsGuard</a></li>
+        <li><a href="https://www.disinfo.eu" target="_blank" rel="noopener noreferrer">EU DisinfoLab</a></li>
+      </ul>
+    </div>
+    <div class="sources-category">
+      <strong>Sources académiques et données publiques</strong>
+      <ul>
+        <li><a href="https://www.cairn.info" target="_blank" rel="noopener noreferrer">Cairn (sciences humaines)</a></li>
+        <li><a href="https://www.persee.fr" target="_blank" rel="noopener noreferrer">Persée (archives scientifiques)</a></li>
+        <li><a href="https://www.insee.fr" target="_blank" rel="noopener noreferrer">INSEE (données officielles France)</a></li>
+      </ul>
+    </div>
+  `;
+  return box;
 }
 
 // ====================================================================

@@ -344,6 +344,64 @@ body {
   line-height: 1.5;
 }
 
+/* Sources de vérification */
+.sources-verification-box {
+  border-left: 3px solid #4A7FD4;
+  background: #F5F8FC;
+  border-radius: 0 4px 4px 0;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.sources-verification-box h3 {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2C5282;
+  margin: 0 0 4px;
+}
+
+.sources-subtitle {
+  font-size: 10px;
+  color: #4A5568;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.sources-category {
+  margin-bottom: 6px;
+}
+
+.sources-category:last-child {
+  margin-bottom: 0;
+}
+
+.sources-category strong {
+  font-size: 10px;
+  color: #1A1A1A;
+}
+
+.sources-category ul {
+  margin: 2px 0 0;
+  padding-left: 1.1rem;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.sources-category li {
+  margin-bottom: 1px;
+}
+
+.sources-category a {
+  color: #2563EB;
+  text-decoration: none;
+}
+
+.sources-category a:hover {
+  text-decoration: underline;
+}
+
 /* Vigilance */
 .vigilance-encart {
   background: #FEF3C7;

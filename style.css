@@ -631,6 +631,67 @@ body {
 }
 
 /* ================================================================
+   ENCART SOURCES DE VÉRIFICATION
+   ================================================================ */
+
+.sources-verification-box {
+  border-left: 3px solid #4A7FD4;
+  background: #F5F8FC;
+  border-radius: 0 4px 4px 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.sources-verification-box h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2C5282;
+  margin: 0 0 0.35rem;
+}
+
+.sources-subtitle {
+  font-size: 0.825rem;
+  color: #4A5568;
+  margin: 0 0 0.875rem;
+  line-height: 1.5;
+}
+
+.sources-category {
+  margin-bottom: 0.75rem;
+}
+
+.sources-category:last-child {
+  margin-bottom: 0;
+}
+
+.sources-category strong {
+  font-size: 0.8rem;
+  color: #1A1A1A;
+}
+
+.sources-category ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.sources-category li {
+  margin-bottom: 0.15rem;
+}
+
+.sources-category a {
+  color: #2563EB;
+  text-decoration: none;
+}
+
+.sources-category a:hover {
+  text-decoration: underline;
+}
+
+/* ================================================================
    SECTIONS DE RÉSULTAT
    ================================================================ */
 
