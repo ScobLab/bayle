@@ -691,6 +691,12 @@ body {
   text-decoration: underline;
 }
 
+.source-desc {
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
 /* ================================================================
    SECTIONS DE RÉSULTAT
    ================================================================ */

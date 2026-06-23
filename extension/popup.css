@@ -402,6 +402,12 @@ body {
   text-decoration: underline;
 }
 
+.source-desc {
+  color: #888;
+  font-size: 9px;
+  font-weight: 400;
+}
+
 /* Vigilance */
 .vigilance-encart {
   background: #FEF3C7;

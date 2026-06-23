@@ -428,28 +428,34 @@ function buildSourcesVerification() {
     <h3>Pour aller plus loin</h3>
     <p class="sources-subtitle">Ces sources vous permettent de vérifier ou d'approfondir les informations de cette analyse.</p>
     <div class="sources-category">
-      <strong>Agences de presse et vérification factuelle</strong>
+      <strong>Agences de presse internationales</strong>
       <ul>
-        <li><a href="https://factuel.afp.com" target="_blank" rel="noopener noreferrer">AFP Factuel</a></li>
-        <li><a href="https://www.reuters.com/fact-check" target="_blank" rel="noopener noreferrer">Reuters Fact Check</a></li>
-        <li><a href="https://lessurligneurs.eu" target="_blank" rel="noopener noreferrer">Les Surligneurs</a></li>
-        <li><a href="https://www.liberation.fr/checknews" target="_blank" rel="noopener noreferrer">CheckNews (Libération)</a></li>
+        <li><a href="https://factuel.afp.com" target="_blank" rel="noopener noreferrer">AFP Factuel</a><span class="source-desc"> — Cellule de vérification de l'Agence France-Presse</span></li>
+        <li><a href="https://www.reuters.com/fact-check" target="_blank" rel="noopener noreferrer">Reuters Fact Check</a><span class="source-desc"> — Agence de presse internationale, vérification factuelle</span></li>
+      </ul>
+    </div>
+    <div class="sources-category">
+      <strong>Fact-checking presse française</strong>
+      <ul>
+        <li><a href="https://www.lemonde.fr/les-decodeurs/" target="_blank" rel="noopener noreferrer">Les Décodeurs, Le Monde</a><span class="source-desc"> — Décryptage et vérification</span></li>
+        <li><a href="https://www.liberation.fr/checknews/" target="_blank" rel="noopener noreferrer">CheckNews, Libération</a><span class="source-desc"> — Vérification factuelle</span></li>
+        <li><a href="https://www.lefigaro.fr/dossier/la-verification" target="_blank" rel="noopener noreferrer">La Vérification, Le Figaro</a><span class="source-desc"> — Fact-checking</span></li>
+        <li><a href="https://www.francetvinfo.fr/vrai-ou-fake/" target="_blank" rel="noopener noreferrer">Vrai ou Faux, France Info</a><span class="source-desc"> — Vérification, service public</span></li>
       </ul>
     </div>
     <div class="sources-category">
       <strong>Organismes de lutte contre la désinformation</strong>
       <ul>
-        <li><a href="https://www.sgdsn.gouv.fr/viginum" target="_blank" rel="noopener noreferrer">Viginum (France)</a></li>
-        <li><a href="https://www.newsguardtech.com" target="_blank" rel="noopener noreferrer">NewsGuard</a></li>
-        <li><a href="https://www.disinfo.eu" target="_blank" rel="noopener noreferrer">EU DisinfoLab</a></li>
+        <li><a href="https://www.sgdsn.gouv.fr/viginum" target="_blank" rel="noopener noreferrer">Viginum</a><span class="source-desc"> — Service public français de vigilance face aux ingérences numériques étrangères</span></li>
+        <li><a href="https://www.newsguardtech.com" target="_blank" rel="noopener noreferrer">NewsGuard</a><span class="source-desc"> — Évaluation de la fiabilité des sites d'information</span></li>
+        <li><a href="https://www.disinfo.eu" target="_blank" rel="noopener noreferrer">EU DisinfoLab</a><span class="source-desc"> — ONG européenne d'analyse de la désinformation</span></li>
       </ul>
     </div>
     <div class="sources-category">
       <strong>Sources académiques et données publiques</strong>
       <ul>
-        <li><a href="https://www.cairn.info" target="_blank" rel="noopener noreferrer">Cairn (sciences humaines)</a></li>
-        <li><a href="https://www.persee.fr" target="_blank" rel="noopener noreferrer">Persée (archives scientifiques)</a></li>
-        <li><a href="https://www.insee.fr" target="_blank" rel="noopener noreferrer">INSEE (données officielles France)</a></li>
+        <li><a href="https://www.cairn.info" target="_blank" rel="noopener noreferrer">Cairn</a><span class="source-desc"> — Plateforme de revues scientifiques en sciences humaines</span></li>
+        <li><a href="https://www.insee.fr" target="_blank" rel="noopener noreferrer">INSEE</a><span class="source-desc"> — Institut national de la statistique française</span></li>
       </ul>
     </div>
   `;
