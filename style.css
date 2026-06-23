@@ -691,6 +691,12 @@ body {
   text-decoration: underline;
 }
 
+.source-orientation {
+  color: #999;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
 .source-desc {
   color: #888;
   font-size: 0.8rem;

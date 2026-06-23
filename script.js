@@ -608,10 +608,10 @@ function buildSourcesVerification() {
     <div class="sources-category">
       <strong>Fact-checking presse française</strong>
       <ul>
-        <li><a href="https://www.lemonde.fr/les-decodeurs/" target="_blank" rel="noopener noreferrer">Les Décodeurs, Le Monde</a><span class="source-desc"> — Décryptage et vérification</span></li>
-        <li><a href="https://www.liberation.fr/checknews/" target="_blank" rel="noopener noreferrer">CheckNews, Libération</a><span class="source-desc"> — Vérification factuelle</span></li>
-        <li><a href="https://www.lefigaro.fr/dossier/la-verification" target="_blank" rel="noopener noreferrer">La Vérification, Le Figaro</a><span class="source-desc"> — Fact-checking</span></li>
-        <li><a href="https://www.francetvinfo.fr/vrai-ou-fake/" target="_blank" rel="noopener noreferrer">Vrai ou Faux, France Info</a><span class="source-desc"> — Vérification, service public</span></li>
+        <li><a href="https://www.lemonde.fr/les-decodeurs/" target="_blank" rel="noopener noreferrer">Les Décodeurs, Le Monde</a><span class="source-orientation"> (Centre-gauche, social-libéral)</span><span class="source-desc"> — Décryptage et vérification</span></li>
+        <li><a href="https://www.liberation.fr/checknews/" target="_blank" rel="noopener noreferrer">CheckNews, Libération</a><span class="source-orientation"> (Gauche, progressiste)</span><span class="source-desc"> — Vérification factuelle</span></li>
+        <li><a href="https://www.lefigaro.fr/dossier/la-verification" target="_blank" rel="noopener noreferrer">La Vérification, Le Figaro</a><span class="source-orientation"> (Droite, libéral-conservateur)</span><span class="source-desc"> — Fact-checking</span></li>
+        <li><a href="https://www.francetvinfo.fr/vrai-ou-fake/" target="_blank" rel="noopener noreferrer">Vrai ou Faux, France Info</a><span class="source-orientation"> (Service public, neutre et pluraliste)</span><span class="source-desc"> — Vérification</span></li>
       </ul>
     </div>
     <div class="sources-category">
