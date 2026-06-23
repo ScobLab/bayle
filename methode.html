@@ -21,6 +21,11 @@
        EN-TÊTE
        ================================================================ -->
   <header class="site-header">
+    <!-- Sélecteur de langue -->
+    <div class="lang-selector">
+      <button class="lang-btn lang-btn-active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <svg style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.10;pointer-events:none;" viewBox="0 0 680 240" preserveAspectRatio="xMidYMid slice">
       <line x1="0" y1="40" x2="680" y2="40" stroke="#FFF" stroke-width="0.5"/>
       <line x1="0" y1="80" x2="680" y2="80" stroke="#FFF" stroke-width="0.5"/>
@@ -42,11 +47,11 @@
       <polyline points="80,40 280,80 480,40 580,120" fill="none" stroke="#FFF" stroke-width="1" opacity="0.5"/>
     </svg>
     <div class="header-content">
-      <p class="header-surtitre">Guide · Open source</p>
+      <p class="header-surtitre" data-i18n="headerSurtitre">Guide · Open source</p>
       <h1 class="title-bayle">Bayle</h1>
       <div class="header-gold-bar"></div>
-      <p class="site-subtitle">Comment analyser un article de presse en 5 minutes</p>
-      <a href="index.html" class="risk-back-link">← Retour à l'outil</a>
+      <p class="site-subtitle" data-i18n="headerSoustitre">Comment analyser un article de presse en 5 minutes</p>
+      <a href="index.html" class="risk-back-link" data-i18n="backLink">← Retour à l'outil</a>
     </div>
   </header>
 
@@ -56,8 +61,8 @@
   <div class="risques-content">
 
     <div class="risk-section">
-      <h2 class="risk-section-title">1. Qui parle ?</h2>
-      <div class="risk-section-body">
+      <h2 class="risk-section-title" data-i18n="methTitle1">1. Qui parle ?</h2>
+      <div class="risk-section-body" data-i18n-html="methBody1">
         <p>Avant même de lire le contenu, posez-vous la question de la source : qui a écrit ce texte, et pour qui ?</p>
         <ul>
           <li><strong>L'auteur</strong> : un article signé par un journaliste a généralement une expertise vérifiable. Une tribune ou un édito signé par une personnalité extérieure (dirigeant d'entreprise, responsable politique, association) défend souvent un point de vue qui lui est favorable.</li>
@@ -74,8 +79,8 @@
     </div>
 
     <div class="risk-section">
-      <h2 class="risk-section-title">2. Faits ou opinions ?</h2>
-      <div class="risk-section-body">
+      <h2 class="risk-section-title" data-i18n="methTitle2">2. Faits ou opinions ?</h2>
+      <div class="risk-section-body" data-i18n-html="methBody2">
         <p>Un même article mélange souvent des affirmations vérifiables et des jugements de valeur. Apprendre à les distinguer est la base de la lecture critique.</p>
         <ul>
           <li><strong>Un fait vérifiable</strong> s'appuie sur des données, des dates, des citations exactes, des événements qui peuvent être confirmés par d'autres sources.</li>
@@ -92,8 +97,8 @@
     </div>
 
     <div class="risk-section">
-      <h2 class="risk-section-title">3. Les biais de cadrage</h2>
-      <div class="risk-section-body">
+      <h2 class="risk-section-title" data-i18n="methTitle3">3. Les biais de cadrage</h2>
+      <div class="risk-section-body" data-i18n-html="methBody3">
         <p>Le « cadrage » désigne la façon dont un sujet est présenté : les mots choisis, l'angle retenu et les procédés rhétoriques utilisés influencent la perception du lecteur, souvent avant même qu'il ait lu les arguments.</p>
         <ul>
           <li><strong>Mots chargés</strong> : certains mots portent une connotation positive ou négative qui oriente le jugement.</li>
@@ -110,8 +115,8 @@
     </div>
 
     <div class="risk-section">
-      <h2 class="risk-section-title">4. Ce qui est omis</h2>
-      <div class="risk-section-body">
+      <h2 class="risk-section-title" data-i18n="methTitle4">4. Ce qui est omis</h2>
+      <div class="risk-section-body" data-i18n-html="methBody4">
         <p>Ce qu'un article ne dit pas est parfois aussi important que ce qu'il dit. Une information factuellement exacte peut donner une impression trompeuse si elle est présentée hors contexte.</p>
         <ul>
           <li><strong>Contexte manquant</strong> : un chiffre ou un événement isolé peut donner une impression différente une fois replacé dans son évolution sur plusieurs années ou comparé à d'autres pays.</li>
@@ -128,8 +133,8 @@
     </div>
 
     <div class="risk-section">
-      <h2 class="risk-section-title">5. À qui ça profite ?</h2>
-      <div class="risk-section-body">
+      <h2 class="risk-section-title" data-i18n="methTitle5">5. À qui ça profite ?</h2>
+      <div class="risk-section-body" data-i18n-html="methBody5">
         <p>Un discours sert toujours, directement ou indirectement, des intérêts. Identifier qui profiterait de ce que le lecteur croie ou fasse aide à évaluer la neutralité d'un texte.</p>
         <ul>
           <li><strong>Intérêts économiques</strong> : qui gagnerait financièrement si le lecteur était convaincu par cet article ?</li>
@@ -146,8 +151,8 @@
     </div>
 
     <div class="risk-section">
-      <h2 class="risk-section-title">6. Comment vérifier ?</h2>
-      <div class="risk-section-body">
+      <h2 class="risk-section-title" data-i18n="methTitle6">6. Comment vérifier ?</h2>
+      <div class="risk-section-body" data-i18n-html="methBody6">
         <p>La lecture critique ne s'arrête pas à l'identification des biais : elle se complète par une démarche active de vérification.</p>
         <ul>
           <li><strong>Sources primaires</strong> : rapports officiels, données statistiques publiques, comptes rendus de séance, jugements — autant de documents accessibles directement, sans passer par un intermédiaire.</li>
@@ -170,18 +175,19 @@
        ================================================================ -->
   <footer class="site-footer">
     <p>
-      <a href="https://github.com/ScobLab/bayle" target="_blank" rel="noopener noreferrer">Code source</a>
+      <a href="https://github.com/ScobLab/bayle" target="_blank" rel="noopener noreferrer" data-i18n="footerCode">Code source</a>
       &nbsp;·&nbsp;
-      <a href="PROMPT.md" target="_blank">Prompt d'analyse (public)</a>
+      <a href="PROMPT.md" target="_blank" data-i18n="footerPrompt">Prompt d'analyse (public)</a>
       &nbsp;·&nbsp;
-      <a href="https://github.com/ScobLab/bayle/issues" target="_blank" rel="noopener noreferrer">Signaler un problème</a>
+      <a href="https://github.com/ScobLab/bayle/issues" target="_blank" rel="noopener noreferrer" data-i18n="footerIssue">Signaler un problème</a>
       &nbsp;·&nbsp;
-      <a href="https://ko-fi.com/scoblab" target="_blank" rel="noopener noreferrer">Soutenir le projet ☕</a>
+      <a href="https://ko-fi.com/scoblab" target="_blank" rel="noopener noreferrer" data-i18n="footerKofi">Soutenir le projet ☕</a>
     </p>
-    <p style="margin-top: 0.5rem;">Licence MIT &nbsp;·&nbsp; Aucun tracking, aucun cookie</p>
+    <p style="margin-top: 0.5rem;" data-i18n="footerLicense">Licence MIT · Aucun tracking, aucun cookie</p>
   </footer>
 
 </div>
 
+<script src="methode.js"></script>
 </body>
 </html>

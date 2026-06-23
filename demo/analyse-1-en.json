@@ -1,0 +1,71 @@
+{
+  "titre_demo": "The return of French cinema — towards a revival after the crisis (fictional article)",
+  "texte_source": "French cinema has seen a notable resurgence of interest over the past two years. According to CNC figures, theater attendance rose by 12% in 2024 compared to 2023, driven notably by the success of several domestic productions. \"French audiences are finding their way back to cinemas,\" says the president of the French National Federation of Cinemas. French films now account for 38% of admissions, their best result in ten years. This trend is partly explained by a strengthened support policy from the Ministry of Culture, which increased production grants by 15% over the same period. Some industry professionals remain cautious, however: \"A good number is not enough to hide the structural weaknesses of the sector,\" nuances an independent Parisian producer. Streaming platforms continue to capture a growing share of cultural habits, particularly among those under 35.",
+  "analyse": {
+    "locuteur": {
+      "identification": "Unsigned general news article, likely from a national daily newspaper",
+      "affiliations_connues": "Not documented — article without explicit byline",
+      "intérêts_potentiels": "Informing the general public about the state of the cultural sector, without apparent commercial bias"
+    },
+    "faits_vs_opinions": {
+      "faits_vérifiables": [
+        "Theater attendance rose by 12% in 2024 compared to 2023, according to the CNC",
+        "French films account for 38% of admissions",
+        "The Ministry of Culture increased production grants by 15%"
+      ],
+      "opinions_assumées": [
+        "\"French audiences are finding their way back to cinemas\" (statement by the FNCF president, stated opinion)",
+        "\"A good number is not enough to hide the structural weaknesses\" (independent producer, stated opinion)"
+      ],
+      "opinions_déguisées_en_faits": [
+        "\"Best result in ten years\" — comparative claim presented as fact without a precise source for prior years"
+      ]
+    },
+    "vérifications": {
+      "affirmations_solides": [
+        "The CNC does publish verifiable annual attendance data",
+        "The Ministry of Culture's cinema support policy is documented and verifiable through public reports"
+      ],
+      "affirmations_à_nuancer": [
+        "The 12% increase must be placed in post-pandemic context: the 2023 baseline was still low",
+        "The 38% market share is presented as a success but remains below pre-2020 levels"
+      ],
+      "affirmations_problématiques": [],
+      "limites_de_ma_vérification": "I cannot verify the exact CNC figures for 2024 in real time. The cited data is plausible but requires verification at cnc.fr for confirmation."
+    },
+    "intérêts_servis": {
+      "à_qui_ce_discours_profite": "The French cinema industry as a whole, and indirectly the Ministry of Culture whose policy is portrayed positively",
+      "objectifs_probables": "To showcase the sector's results and legitimize public support policies for cinema",
+      "public_cible": "General public interested in culture, industry professionals, policymakers"
+    },
+    "biais_de_cadrage": {
+      "mots_chargés": [
+        "\"Notable resurgence of interest\" — positive phrasing that presupposes a value judgment",
+        "\"Revival\" in the title — optimistic term that frames the reading before the first paragraph"
+      ],
+      "choix_d_angle": "The article favors the angle of recovery and success. The impact of streaming platforms is mentioned but relegated to the last sentence, minimizing a major structural trend.",
+      "structure_rhétorique": "Classic positive funnel structure: favorable figures at the opening, dissenting voice in the middle, conclusion returning to the broader trend (streaming). No manipulation attempt detected."
+    },
+    "omissions": {
+      "informations_manquantes": [
+        "Data on the actual profitability of French films compared to American productions in theaters",
+        "Concrete impact of platforms on independent producers' revenue",
+        "Comparison with European figures to contextualize French performance"
+      ],
+      "contre-arguments_absents": [
+        "Some industry analysts believe the attendance increase masks a concentration of admissions on a small number of blockbusters",
+        "The question of diversity in publicly funded films is not addressed"
+      ]
+    },
+    "contre_points_légitimes": "Cultural economists point out that French cinema's market share remains structurally threatened by younger generations' consumption habits. Independent producers highlight a concentration of subsidies on major studios at the expense of smaller productions.",
+    "fiabilité_globale": {
+      "score_sur_10": 7,
+      "justification": "The article relies on verifiable official figures and cites identifiable sources. The framing is generally positive but not misleading. Limitations include insufficient contextualization of figures and a deliberately optimistic angle that minimizes structural challenges.",
+      "ce_que_le_lecteur_devrait_creuser": "Verify raw data at cnc.fr, consult CNC annual reports, and seek opinions from independent economists specializing in the cultural industry."
+    },
+    "vigilance_recommandée": {
+      "niveau": "aucune",
+      "justification": "Cultural topic with no geopolitical or sensitive political dimension. Low risk of bias or disinformation."
+    }
+  }
+}

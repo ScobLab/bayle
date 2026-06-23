@@ -1,0 +1,73 @@
+{
+  "titre_demo": "Vaccination: French confidence declining according to a new study (fictional article)",
+  "texte_source": "A study published by a private polling institute reveals that 34% of French people say they \"do not trust\" vaccines recommended by health authorities, an increase of 8 points in three years. \"The French are increasingly wary of medical directives,\" analyzes the institute's director. This trend is reportedly driven by controversies around Covid vaccines, which allegedly permanently damaged the trust relationship between citizens and health institutions. General practitioners report an increase in vaccination refusals during consultations. The National Academy of Medicine, for its part, reminds that \"vaccination remains one of the most effective and scientifically best-documented public health tools.\" The debate on mandatory vaccination, once considered by the government, now appears to have been shelved.",
+  "analyse": {
+    "locuteur": {
+      "identification": "Unsigned news article covering a study by a private polling institute",
+      "affiliations_connues": "Not documented — both the commissioning polling institute and the publishing media outlet are unidentified in the excerpt",
+      "intérêts_potentiels": "Drawing attention to vaccine hesitancy; depending on the actual identity of the commissioner, interests may vary significantly"
+    },
+    "faits_vs_opinions": {
+      "faits_vérifiables": [
+        "A study by a private polling institute was published (not verifiable without identifying the institute)",
+        "The National Academy of Medicine does have documented public positions on vaccination",
+        "The debate on mandatory vaccination did take place in France"
+      ],
+      "opinions_assumées": [
+        "\"The French are increasingly wary of medical directives\" (institute director, stated interpretive judgment)",
+        "Covid vaccines \"allegedly permanently damaged\" trust — conditional tense signals an unestablished opinion"
+      ],
+      "opinions_déguisées_en_faits": [
+        "\"Controversies around Covid vaccines\" presented as the established cause of distrust, while the causal link is not demonstrated in the article",
+        "\"An increase in vaccination refusals\" — doctor testimonials presented as a general trend without quantified data"
+      ]
+    },
+    "vérifications": {
+      "affirmations_solides": [
+        "The National Academy of Medicine's position on vaccine efficacy is consistent with the documented international scientific consensus"
+      ],
+      "affirmations_à_nuancer": [
+        "The 34% figure and the 8-point increase cannot be verified without knowing the institute's identity, methodology, and study commissioner",
+        "Vaccine hesitancy in France is documented by serious studies (Ipsos, Ifop) but figures vary significantly depending on methodology"
+      ],
+      "affirmations_problématiques": [
+        "Presenting a study from an unidentified private institute as the main source for a public health article poses a serious methodological problem"
+      ],
+      "limites_de_ma_vérification": "Topic sensitive to health disinformation. Without identifying the commissioning institute, it is impossible to assess potential biases in the study. Vaccination data for France is available from Santé Publique France but may differ from the cited figures."
+    },
+    "intérêts_servis": {
+      "à_qui_ce_discours_profite": "An article amplifying vaccine hesitancy objectively serves anti-vaccine movements, regardless of the author's intent. It may also serve commercial interests if the study is commissioned by complementary health sector actors.",
+      "objectifs_probables": "Informing on a sociological trend, probably with an intent to question public health policies",
+      "public_cible": "General public, readers with doubts about medical institutions"
+    },
+    "biais_de_cadrage": {
+      "mots_chargés": [
+        "\"Medical directives\" — pejorative term that presupposes an authoritarian character of vaccination policy",
+        "\"Permanently damaged\" — phrasing that dramatizes the link between Covid vaccines and current distrust"
+      ],
+      "choix_d_angle": "The article builds a narrative of growing distrust based on an unidentified study, non-quantified testimonials, and by relegating the Academy of Medicine's scientific position to a mere \"reminder\" at the end of the article. The information hierarchy favors doubt. No manipulation attempt detected.",
+      "structure_rhétorique": "Classic false balance technique: placing an unidentified private study on equal footing with the National Academy of Medicine's position creates an artificial equivalence between distrust and scientific consensus."
+    },
+    "omissions": {
+      "informations_manquantes": [
+        "The identity of the study's commissioner and its methodology — essential information for assessing its reliability",
+        "Actual vaccination coverage data in France (which may diverge from stated intentions)",
+        "Scientific studies on the effects of institutional communication on vaccine confidence"
+      ],
+      "contre-arguments_absents": [
+        "Epidemiologists note that stated distrust does not always translate into actual refusal at the time of vaccination",
+        "European comparisons show that France remains within the average of developed countries in terms of effective vaccination coverage"
+      ]
+    },
+    "contre_points_légitimes": "Santé Publique France publishes regular data on actual vaccination coverage, which is more reliable than declarative surveys. Social science researchers such as those at CERMES3 document vaccine hesitancy with more rigorous methodologies than private polls.",
+    "fiabilité_globale": {
+      "score_sur_10": 4,
+      "justification": "The article relies on an unidentifiable main source (private polling institute) and uses framing that amplifies vaccine hesitancy while minimizing scientific consensus. The failure to identify the study's commissioner is a major methodological issue. The scientific position is present but relegated.",
+      "ce_que_le_lecteur_devrait_creuser": "Search for the original study and verify the commissioner's identity. Consult Santé Publique France data on actual vaccination coverage. Read publications from the National Academy of Medicine and HAS on vaccination."
+    },
+    "vigilance_recommandée": {
+      "niveau": "santé_science_médicale",
+      "justification": "Vaccination topic, particularly sensitive to disinformation. The article amplifies distrust without identifying its main source, which is a methodological red flag."
+    }
+  }
+}

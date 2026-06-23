@@ -496,12 +496,16 @@ function applyLanguage(lang) {
     btn.classList.toggle('lang-btn-active', btn.dataset.lang === lang);
   });
 
-  document.querySelectorAll('.demo-card-number').forEach(el => {
-    const idx = el.dataset.demoIndex;
-    if (idx) el.textContent = `${t('demoCardPrefix')} ${idx}`;
-  });
+  if (demoCardsEl) {
+    demoCardsEl.innerHTML = '';
+    loadDemos();
+  }
 
-  if (lastResult && resultZone && resultZone.style.display !== 'none') {
+  if (lastResult?.isDemo && resultZone) {
+    resultZone.style.display = 'none';
+    resultZone.innerHTML = '';
+    lastResult = null;
+  } else if (lastResult && resultZone && resultZone.style.display !== 'none') {
     showResult(lastResult.analysis, lastResult.isDemo, lastResult.sourceText);
   }
 }
@@ -555,10 +559,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====================================================================
 async function loadDemos() {
   const base = document.location.href.replace(/\/[^/]*$/, '');
+  const suffix = currentLang === 'en' ? '-en' : '';
   const files = [
-    base + '/demo/analyse-1.json',
-    base + '/demo/analyse-2.json',
-    base + '/demo/analyse-3.json'
+    base + `/demo/analyse-1${suffix}.json`,
+    base + `/demo/analyse-2${suffix}.json`,
+    base + `/demo/analyse-3${suffix}.json`
   ];
 
   let loaded = 0;
