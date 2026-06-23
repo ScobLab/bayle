@@ -21,6 +21,11 @@
        EN-TÊTE
        ================================================================ -->
   <header class="site-header">
+    <!-- Sélecteur de langue -->
+    <div class="lang-selector">
+      <button class="lang-btn lang-btn-active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <svg style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.10;pointer-events:none;" viewBox="0 0 680 240" preserveAspectRatio="xMidYMid slice">
       <line x1="0" y1="40" x2="680" y2="40" stroke="#FFF" stroke-width="0.5"/>
       <line x1="0" y1="80" x2="680" y2="80" stroke="#FFF" stroke-width="0.5"/>
@@ -42,17 +47,17 @@
       <polyline points="80,40 280,80 480,40 580,120" fill="none" stroke="#FFF" stroke-width="1" opacity="0.5"/>
     </svg>
     <div class="header-content">
-      <p class="header-surtitre">Outil d'analyse · Open source</p>
+      <p class="header-surtitre" data-i18n="headerSurtitre">Outil d'analyse · Open source</p>
       <h1 class="title-bayle">Bayle</h1>
       <div class="header-gold-bar"></div>
-      <p class="site-subtitle">Analysez n'importe quel article de presse.<br>Obtenez une lecture neutre et documentée.</p>
+      <p class="site-subtitle" data-i18n-html="headerSoustitre">Analysez n'importe quel article de presse.<br>Obtenez une lecture neutre et documentée.</p>
     </div>
   </header>
 
   <!-- ================================================================
        AVERTISSEMENT PERMANENT
        ================================================================ -->
-  <p class="disclaimer">
+  <p class="disclaimer" data-i18n="disclaimer">
     Bayle est un outil expérimental d'aide à la lecture critique.
     Cet outil ne remplace ni le journalisme, ni votre propre jugement.
   </p>
@@ -61,16 +66,16 @@
        EXTENSION NAVIGATEUR
        ================================================================ -->
   <div class="extension-promo">
-    <strong class="extension-promo-title">Extension navigateur</strong>
-    <span class="extension-promo-desc">Analysez l'article que vous lisez en un clic. Chrome, Edge, Opera, Firefox.</span>
-    <a href="https://github.com/ScobLab/bayle/blob/main/extension/INSTALL.md" target="_blank" rel="noopener noreferrer" class="extension-promo-link">Guide d'installation →</a>
+    <strong class="extension-promo-title" data-i18n="extensionTitle">Extension navigateur</strong>
+    <span class="extension-promo-desc" data-i18n="extensionDesc">Analysez l'article que vous lisez en un clic. Chrome, Edge, Opera, Firefox.</span>
+    <a href="https://github.com/ScobLab/bayle/blob/main/extension/INSTALL.md" target="_blank" rel="noopener noreferrer" class="extension-promo-link" data-i18n="extensionLink">Guide d'installation →</a>
   </div>
 
   <!-- ================================================================
        SECTION DÉMONSTRATION
        ================================================================ -->
   <section class="demo-section" aria-label="Analyses de démonstration">
-    <p class="demo-section-title">Exemples sans clé API</p>
+    <p class="demo-section-title" data-i18n="demoSectionTitle">Exemples sans clé API</p>
     <div id="demo-cards" role="list" aria-label="Analyses pré-générées">
       <!-- Les cartes sont injectées par script.js -->
     </div>
@@ -79,56 +84,57 @@
   <!-- ================================================================
        SÉPARATEUR
        ================================================================ -->
-  <div class="separator" aria-hidden="true">Votre article</div>
+  <div class="separator" aria-hidden="true" data-i18n="separatorText">Votre article</div>
 
   <!-- ================================================================
        LIEN MÉTHODE
        ================================================================ -->
   <p class="methode-link-banner">
-    <a href="methode.html" class="methode-link-anchor">Première fois ? Apprenez à analyser un article →</a>
+    <a href="methode.html" class="methode-link-anchor" data-i18n="methodeLinkText">Première fois ? Apprenez à analyser un article →</a>
   </p>
 
   <!-- ================================================================
        FORMULAIRE D'ANALYSE
        ================================================================ -->
   <section id="form-section" aria-label="Formulaire d'analyse">
-    <p class="form-section-title">Analyser un article</p>
+    <p class="form-section-title" data-i18n="formSectionTitle">Analyser un article</p>
 
     <!-- Clé API -->
     <div class="form-group" id="api-key-group">
 
       <!-- Indicateur : clé enregistrée (masqué par défaut) -->
       <div id="api-key-saved" class="api-key-saved-indicator" style="display:none;">
-        <span>✓ Clé API enregistrée</span>
-        <a href="#" id="change-key-link" class="api-key-change-link">Changer / effacer</a>
+        <span data-i18n="apiKeySavedText">✓ Clé API enregistrée</span>
+        <a href="#" id="change-key-link" class="api-key-change-link" data-i18n="apiKeyChangeLink">Changer / effacer</a>
       </div>
 
       <!-- Zone de saisie (visible par défaut) -->
       <div id="api-key-input-zone">
-        <label for="api-key" class="form-label">Clé API</label>
+        <label for="api-key" class="form-label" data-i18n="apiKeyLabel">Clé API</label>
         <div class="api-key-row">
           <input
             type="password"
             id="api-key"
             class="form-input"
             placeholder="Collez votre clé API Mistral ici"
+            data-i18n-placeholder="apiKeyPlaceholder"
             autocomplete="off"
             spellcheck="false"
           >
-          <button type="button" id="clear-key" class="btn-clear" aria-label="Effacer la clé API enregistrée">
+          <button type="button" id="clear-key" class="btn-clear" data-i18n="clearKeyBtn">
             Effacer ma clé
           </button>
         </div>
         <div class="api-tutorial-box" id="api-tutorial-box">
-          <p class="api-tutorial-title">Pas encore de clé API ? C'est gratuit et ça prend 1 minute</p>
+          <p class="api-tutorial-title" data-i18n="tutorialTitle">Pas encore de clé API ? C'est gratuit et ça prend 1 minute</p>
           <ol class="api-tutorial-steps">
-            <li>Rendez-vous sur <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer">console.mistral.ai/api-keys</a></li>
-            <li>Cliquez sur "Créer une nouvelle clé"</li>
-            <li>Donnez-lui un nom (ex : "Bayle") et cliquez sur "Créer"</li>
-            <li>Copiez immédiatement la clé affichée — elle ne sera plus visible ensuite</li>
-            <li>Collez-la dans le champ ci-dessus</li>
+            <li data-i18n-html="tutorialStep1">Rendez-vous sur <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer">console.mistral.ai/api-keys</a></li>
+            <li data-i18n="tutorialStep2">Cliquez sur "Créer une nouvelle clé"</li>
+            <li data-i18n="tutorialStep3">Donnez-lui un nom (ex : "Bayle") et cliquez sur "Créer"</li>
+            <li data-i18n="tutorialStep4">Copiez immédiatement la clé affichée — elle ne sera plus visible ensuite</li>
+            <li data-i18n="tutorialStep5">Collez-la dans le champ ci-dessus</li>
           </ol>
-          <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer" class="btn-tutorial-gold">Créer ma clé API Mistral gratuitement →</a>
+          <a href="https://console.mistral.ai/api-keys" target="_blank" rel="noopener noreferrer" class="btn-tutorial-gold" data-i18n="tutorialBtn">Créer ma clé API Mistral gratuitement →</a>
         </div>
       </div>
 
@@ -136,29 +142,30 @@
 
     <!-- Zone de texte -->
     <div class="form-group">
-      <label for="article-text" class="form-label">Texte de l'article</label>
+      <label for="article-text" class="form-label" data-i18n="articleTextLabel">Texte de l'article</label>
       <textarea
         id="article-text"
         class="form-textarea"
         placeholder="Collez ici le texte intégral de l'article (minimum 200 caractères)…"
+        data-i18n-placeholder="articleTextPlaceholder"
         rows="8"
         aria-describedby="char-count"
       ></textarea>
       <div class="textarea-footer">
         <span id="char-count" aria-live="polite">0 caractère</span>
       </div>
-      <p class="form-security-notice">Votre clé est stockée uniquement dans votre navigateur.</p>
+      <p class="form-security-notice" data-i18n="securityNotice">Votre clé est stockée uniquement dans votre navigateur.</p>
     </div>
 
     <!-- Bouton analyser -->
-    <button type="button" id="analyze-btn" class="btn-analyze" disabled>
+    <button type="button" id="analyze-btn" class="btn-analyze" disabled data-i18n="analyzeBtn">
       Analyser
     </button>
 
     <!-- Zone de chargement -->
     <div id="loading-zone" role="status" aria-live="polite">
       <span class="loading-spinner" aria-hidden="true"></span>
-      Analyse en cours, environ 30 secondes…
+      <span data-i18n="loadingText">Analyse en cours, environ 30 secondes…</span>
     </div>
 
     <!-- Zone d'erreur -->
@@ -178,17 +185,17 @@
        ================================================================ -->
   <footer class="site-footer">
     <p>
-      <a href="https://github.com/ScobLab/bayle" target="_blank" rel="noopener noreferrer">Code source</a>
+      <a href="https://github.com/ScobLab/bayle" target="_blank" rel="noopener noreferrer" data-i18n="footerCode">Code source</a>
       &nbsp;·&nbsp;
-      <a href="PROMPT.md" target="_blank">Prompt d'analyse (public)</a>
+      <a href="PROMPT.md" target="_blank" data-i18n="footerPrompt">Prompt d'analyse (public)</a>
       &nbsp;·&nbsp;
-      <a href="methode.html">Guide d'analyse →</a>
+      <a href="methode.html" data-i18n="footerGuide">Guide d'analyse →</a>
       &nbsp;·&nbsp;
-      <a href="https://github.com/ScobLab/bayle/issues" target="_blank" rel="noopener noreferrer">Signaler un problème</a>
+      <a href="https://github.com/ScobLab/bayle/issues" target="_blank" rel="noopener noreferrer" data-i18n="footerIssue">Signaler un problème</a>
       &nbsp;·&nbsp;
-      <a href="https://ko-fi.com/scoblab" target="_blank" rel="noopener noreferrer">Soutenir le projet ☕</a>
+      <a href="https://ko-fi.com/scoblab" target="_blank" rel="noopener noreferrer" data-i18n="footerKofi">Soutenir le projet ☕</a>
     </p>
-    <p style="margin-top: 0.5rem;">Licence MIT &nbsp;·&nbsp; Aucun tracking, aucun cookie</p>
+    <p style="margin-top: 0.5rem;" data-i18n="footerLicense">Licence MIT · Aucun tracking, aucun cookie</p>
   </footer>
 
 </div>
