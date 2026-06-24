@@ -617,7 +617,6 @@ async function analyzeArticle(text) {
       }
     }
 
-    console.log('[Bayle] vigilance_recommandée:', analysis.vigilance_recommandée);
     showResult(analysis);
   } catch (e) {
     document.getElementById('error-message').textContent = e.message;
