@@ -397,24 +397,19 @@ const TRANSLATIONS = {
     sourcesTitle: "Further reading",
     sourcesSubtitle: "These sources can help you verify or deepen the information in this analysis.",
     sourcesCatAgences: "International news agencies",
-    sourcesCatPresse: "French press fact-checking",
+    sourcesCatFactCheck: "Independent fact-checking organizations",
     sourcesCatOrganismes: "Disinformation watchdogs",
-    sourcesCatAcademiques: "Academic sources and public data",
-    sourceDescAFP: "Fact-checking unit of Agence France-Presse",
+    sourcesCatAcademiques: "Academic and public data sources",
     sourceDescReuters: "International news agency, fact-checking",
-    sourceDescDecodeurs: "Analysis and verification",
-    sourceDescCheckNews: "Fact-checking",
-    sourceDescFigaro: "Fact-checking",
-    sourceDescFranceInfo: "Verification, public broadcasting",
-    sourceDescViginum: "French public agency monitoring foreign digital interference",
+    sourceDescAP: "Associated Press fact-checking unit",
+    sourceDescBBCVerify: "BBC's verification and fact-checking unit",
+    sourceDescFactCheck: "Nonpartisan, nonprofit fact-checking project (US)",
+    sourceDescFullFact: "UK's independent fact-checking charity",
+    sourceDescPolitiFact: "Nonpartisan fact-checking (US)",
     sourceDescNewsGuard: "News source reliability ratings",
     sourceDescDisinfoLab: "European NGO analyzing disinformation",
-    sourceDescCairn: "French-language academic journals platform",
-    sourceDescINSEE: "French national statistics institute",
-    sourceOrientMonde: "(Center-left, social-liberal)",
-    sourceOrientLiberation: "(Left, progressive)",
-    sourceOrientFigaro: "(Right, liberal-conservative)",
-    sourceOrientFranceInfo: "(Public broadcasting, neutral and pluralistic)",
+    sourceDescIFCN: "Global network of verified fact-checkers",
+    sourceDescReportersLab: "Database and research on fact-checking organizations worldwide",
     copyHeader: "BAYLE — Critical analysis",
     copyScore: "Score",
     copyLimites: "Limitations",
@@ -555,6 +550,7 @@ async function loadArticlePreview() {
 // ====================================================================
 async function analyzeArticle(text) {
   const key = await getStoredKey();
+  console.log('[Bayle] analyzeArticle lang:', currentLang);
   const prompt = currentLang === 'en' ? ANALYSIS_PROMPT_EN : ANALYSIS_PROMPT_FR;
   const author = document.getElementById('author-input')?.value.trim();
   const textWithAuthor = author
@@ -778,41 +774,79 @@ function buildList(label, items, cssClass) {
 function buildSourcesVerification() {
   const box = document.createElement('div');
   box.className = 'sources-verification-box';
-  box.innerHTML = `
-    <h3>${escapeHtml(t('sourcesTitle'))}</h3>
-    <p class="sources-subtitle">${escapeHtml(t('sourcesSubtitle'))}</p>
-    <div class="sources-category">
-      <strong>${escapeHtml(t('sourcesCatAgences'))}</strong>
-      <ul>
-        <li><a href="https://factuel.afp.com" target="_blank" rel="noopener noreferrer">AFP Factuel</a><span class="source-desc"> — ${escapeHtml(t('sourceDescAFP'))}</span></li>
-        <li><a href="https://www.reuters.com/fact-check" target="_blank" rel="noopener noreferrer">Reuters Fact Check</a><span class="source-desc"> — ${escapeHtml(t('sourceDescReuters'))}</span></li>
-      </ul>
-    </div>
-    <div class="sources-category">
-      <strong>${escapeHtml(t('sourcesCatPresse'))}</strong>
-      <ul>
-        <li><a href="https://www.lemonde.fr/les-decodeurs/" target="_blank" rel="noopener noreferrer">Les Décodeurs, Le Monde</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientMonde'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescDecodeurs'))}</span></li>
-        <li><a href="https://www.liberation.fr/checknews/" target="_blank" rel="noopener noreferrer">CheckNews, Libération</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientLiberation'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescCheckNews'))}</span></li>
-        <li><a href="https://www.lefigaro.fr/dossier/la-verification" target="_blank" rel="noopener noreferrer">La Vérification, Le Figaro</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientFigaro'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescFigaro'))}</span></li>
-        <li><a href="https://www.francetvinfo.fr/vrai-ou-fake/" target="_blank" rel="noopener noreferrer">Vrai ou Faux, France Info</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientFranceInfo'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescFranceInfo'))}</span></li>
-      </ul>
-    </div>
-    <div class="sources-category">
-      <strong>${escapeHtml(t('sourcesCatOrganismes'))}</strong>
-      <ul>
-        <li><a href="https://www.sgdsn.gouv.fr/viginum" target="_blank" rel="noopener noreferrer">Viginum</a><span class="source-desc"> — ${escapeHtml(t('sourceDescViginum'))}</span></li>
-        <li><a href="https://www.newsguardtech.com" target="_blank" rel="noopener noreferrer">NewsGuard</a><span class="source-desc"> — ${escapeHtml(t('sourceDescNewsGuard'))}</span></li>
-        <li><a href="https://www.disinfo.eu" target="_blank" rel="noopener noreferrer">EU DisinfoLab</a><span class="source-desc"> — ${escapeHtml(t('sourceDescDisinfoLab'))}</span></li>
-      </ul>
-    </div>
-    <div class="sources-category">
-      <strong>${escapeHtml(t('sourcesCatAcademiques'))}</strong>
-      <ul>
-        <li><a href="https://www.cairn.info" target="_blank" rel="noopener noreferrer">Cairn</a><span class="source-desc"> — ${escapeHtml(t('sourceDescCairn'))}</span></li>
-        <li><a href="https://www.insee.fr" target="_blank" rel="noopener noreferrer">INSEE</a><span class="source-desc"> — ${escapeHtml(t('sourceDescINSEE'))}</span></li>
-      </ul>
-    </div>
-  `;
+
+  if (currentLang === 'en') {
+    box.innerHTML = `
+      <h3>${escapeHtml(t('sourcesTitle'))}</h3>
+      <p class="sources-subtitle">${escapeHtml(t('sourcesSubtitle'))}</p>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatAgences'))}</strong>
+        <ul>
+          <li><a href="https://www.reuters.com/fact-check" target="_blank" rel="noopener noreferrer">Reuters Fact Check</a><span class="source-desc"> — ${escapeHtml(t('sourceDescReuters'))}</span></li>
+          <li><a href="https://apnews.com/hub/ap-fact-check" target="_blank" rel="noopener noreferrer">AP Fact Check</a><span class="source-desc"> — ${escapeHtml(t('sourceDescAP'))}</span></li>
+          <li><a href="https://www.bbc.com/news/topics/c2vp5jmqr82t" target="_blank" rel="noopener noreferrer">BBC Verify</a><span class="source-desc"> — ${escapeHtml(t('sourceDescBBCVerify'))}</span></li>
+        </ul>
+      </div>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatFactCheck'))}</strong>
+        <ul>
+          <li><a href="https://www.factcheck.org" target="_blank" rel="noopener noreferrer">FactCheck.org</a><span class="source-desc"> — ${escapeHtml(t('sourceDescFactCheck'))}</span></li>
+          <li><a href="https://fullfact.org" target="_blank" rel="noopener noreferrer">Full Fact</a><span class="source-desc"> — ${escapeHtml(t('sourceDescFullFact'))}</span></li>
+          <li><a href="https://www.politifact.com" target="_blank" rel="noopener noreferrer">PolitiFact</a><span class="source-desc"> — ${escapeHtml(t('sourceDescPolitiFact'))}</span></li>
+        </ul>
+      </div>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatOrganismes'))}</strong>
+        <ul>
+          <li><a href="https://www.newsguardtech.com" target="_blank" rel="noopener noreferrer">NewsGuard</a><span class="source-desc"> — ${escapeHtml(t('sourceDescNewsGuard'))}</span></li>
+          <li><a href="https://www.disinfo.eu" target="_blank" rel="noopener noreferrer">EU DisinfoLab</a><span class="source-desc"> — ${escapeHtml(t('sourceDescDisinfoLab'))}</span></li>
+          <li><a href="https://www.poynter.org/ifcn/" target="_blank" rel="noopener noreferrer">International Fact-Checking Network</a><span class="source-desc"> — ${escapeHtml(t('sourceDescIFCN'))}</span></li>
+        </ul>
+      </div>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatAcademiques'))}</strong>
+        <ul>
+          <li><a href="https://reporterslab.org" target="_blank" rel="noopener noreferrer">Reporters' Lab, Duke University</a><span class="source-desc"> — ${escapeHtml(t('sourceDescReportersLab'))}</span></li>
+        </ul>
+      </div>
+    `;
+  } else {
+    box.innerHTML = `
+      <h3>${escapeHtml(t('sourcesTitle'))}</h3>
+      <p class="sources-subtitle">${escapeHtml(t('sourcesSubtitle'))}</p>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatAgences'))}</strong>
+        <ul>
+          <li><a href="https://factuel.afp.com" target="_blank" rel="noopener noreferrer">AFP Factuel</a><span class="source-desc"> — ${escapeHtml(t('sourceDescAFP'))}</span></li>
+          <li><a href="https://www.reuters.com/fact-check" target="_blank" rel="noopener noreferrer">Reuters Fact Check</a><span class="source-desc"> — ${escapeHtml(t('sourceDescReuters'))}</span></li>
+        </ul>
+      </div>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatPresse'))}</strong>
+        <ul>
+          <li><a href="https://www.lemonde.fr/les-decodeurs/" target="_blank" rel="noopener noreferrer">Les Décodeurs, Le Monde</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientMonde'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescDecodeurs'))}</span></li>
+          <li><a href="https://www.liberation.fr/checknews/" target="_blank" rel="noopener noreferrer">CheckNews, Libération</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientLiberation'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescCheckNews'))}</span></li>
+          <li><a href="https://www.lefigaro.fr/dossier/la-verification" target="_blank" rel="noopener noreferrer">La Vérification, Le Figaro</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientFigaro'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescFigaro'))}</span></li>
+          <li><a href="https://www.francetvinfo.fr/vrai-ou-fake/" target="_blank" rel="noopener noreferrer">Vrai ou Faux, France Info</a><span class="source-orientation"> ${escapeHtml(t('sourceOrientFranceInfo'))}</span><span class="source-desc"> — ${escapeHtml(t('sourceDescFranceInfo'))}</span></li>
+        </ul>
+      </div>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatOrganismes'))}</strong>
+        <ul>
+          <li><a href="https://www.sgdsn.gouv.fr/viginum" target="_blank" rel="noopener noreferrer">Viginum</a><span class="source-desc"> — ${escapeHtml(t('sourceDescViginum'))}</span></li>
+          <li><a href="https://www.newsguardtech.com" target="_blank" rel="noopener noreferrer">NewsGuard</a><span class="source-desc"> — ${escapeHtml(t('sourceDescNewsGuard'))}</span></li>
+          <li><a href="https://www.disinfo.eu" target="_blank" rel="noopener noreferrer">EU DisinfoLab</a><span class="source-desc"> — ${escapeHtml(t('sourceDescDisinfoLab'))}</span></li>
+        </ul>
+      </div>
+      <div class="sources-category">
+        <strong>${escapeHtml(t('sourcesCatAcademiques'))}</strong>
+        <ul>
+          <li><a href="https://www.cairn.info" target="_blank" rel="noopener noreferrer">Cairn</a><span class="source-desc"> — ${escapeHtml(t('sourceDescCairn'))}</span></li>
+          <li><a href="https://www.insee.fr" target="_blank" rel="noopener noreferrer">INSEE</a><span class="source-desc"> — ${escapeHtml(t('sourceDescINSEE'))}</span></li>
+        </ul>
+      </div>
+    `;
+  }
   return box;
 }
 
