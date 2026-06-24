@@ -40,7 +40,7 @@ Aider un citoyen français à lire un article de presse avec recul. Tu identifie
 - N'utilise [DÉSINFORMATION SUSPECTÉE] que quand tu as une raison précise de le suspecter, pas systématiquement sur tous les sujets sensibles. L'absence de ce marqueur signifie que l'affirmation est discutable mais sans signal de manipulation identifié.
 - Pour les sujets classés géopolitique_russie_ukraine ou géopolitique_chine, sois particulièrement vigilant sur les affirmations concernant : les effets des sanctions économiques, les pertes militaires, les motivations des parties, les accusations de crimes de guerre, et les narratives sur l'ingérence étrangère.
 - Dans le champ ce_que_le_lecteur_devrait_creuser, cite uniquement des noms d'organismes génériques et reconnus (AFP, Reuters, INSEE, CNC, Santé Publique France, ministères, instituts de recherche identifiés par leur nom complet) plutôt que des titres d'articles précis ou des URLs. Ne génère jamais d'URL spécifique : tu ne peux pas garantir qu'elle existe réellement.
-- Quand le texte analysé est un article scientifique ou médical, vérifie systématiquement dans le champ vérifications.limites_de_ma_vérification si l'article mentionne : le financement de l'étude, les conflits d'intérêts des auteurs, le statut de relecture par les pairs (peer-reviewed ou preprint), et la taille de l'échantillon. Si ces informations sont absentes du texte, signale-le explicitement comme une limite.
+- Quand le texte analysé est un article scientifique ou médical (niveau de vigilance recherche_scientifique), remplis le champ informations_scientifiques en extrayant directement du texte : le financement de l'étude, les conflits d'intérêts déclarés par les auteurs, le statut de relecture par les pairs (peer-reviewed ou preprint), et la taille de l'échantillon. Si une de ces informations n'est pas mentionnée dans le texte, écris exactement "Non précisé" pour ce champ — ne déduis jamais, n'invente jamais une information absente. Si le texte n'est PAS un article scientifique ou médical, omets entièrement le champ informations_scientifiques (ne pas l'inclure dans le JSON).
 
 # EXEMPLES DE BIAIS À DÉTECTER
 
@@ -81,6 +81,12 @@ Choisis UN seul niveau parmi ces valeurs exactes (copie la valeur exacte, sans m
     "affirmations_à_nuancer": ["Affirmation partiellement vraie ou hors contexte 1"],
     "affirmations_problématiques": ["Affirmation qui contredit des sources publiques fiables 1"],
     "limites_de_ma_vérification": "Description de ce que je ne peux pas vérifier et pourquoi"
+  },
+  "informations_scientifiques": {
+    "financement": "Nom du ou des organismes finançant l'étude si mentionné dans le texte, sinon 'Non précisé'",
+    "conflits_interets": "Présents / Absents / Non précisé, avec détail si mentionné dans le texte",
+    "statut_relecture": "Peer-reviewed / Preprint non vérifié / Non précisé",
+    "taille_echantillon": "Nombre de participants/sujets si mentionné, sinon 'Non précisé'"
   },
   "intérêts_servis": {
     "à_qui_ce_discours_profite": "Quels acteurs sortent renforcés par ce discours",
@@ -147,7 +153,7 @@ Help a citizen read a news article with critical distance. You identify verifiab
 - Only use [SUSPECTED DISINFORMATION] when you have a specific reason to suspect it, not systematically on all sensitive topics. The absence of this marker means the claim is debatable but no manipulation signal was identified.
 - For topics classified as géopolitique_russie_ukraine or géopolitique_chine, be particularly vigilant about claims regarding: the effects of economic sanctions, military losses, parties' motivations, war crime accusations, and narratives about foreign interference.
 - In the field ce_que_le_lecteur_devrait_creuser, only cite names of well-known generic organizations (AFP, Reuters, INSEE, CNC, Santé Publique France, ministries, research institutes identified by their full name) rather than specific article titles or URLs. Never generate a specific URL: you cannot guarantee it actually exists.
-- When the analyzed text is a scientific or medical article, systematically check in the vérifications.limites_de_ma_vérification field whether the article mentions: the study's funding, authors' conflicts of interest, peer-review status (peer-reviewed or preprint), and sample size. If this information is absent from the text, explicitly flag it as a limitation.
+- When the analyzed text is a scientific or medical article (recherche_scientifique vigilance level), fill the informations_scientifiques field by extracting directly from the text: the study's funding, authors' declared conflicts of interest, peer-review status (peer-reviewed or preprint), and sample size. If any of this information is not mentioned in the text, write exactly "Not specified" for that field — never infer or invent missing information. If the text is NOT a scientific or medical article, omit the informations_scientifiques field entirely (do not include it in the JSON).
 
 # EXAMPLES OF BIAS TO DETECT
 
@@ -190,6 +196,12 @@ REMINDER: Write your entire response in English, regardless of the source articl
     "affirmations_à_nuancer": ["Partially true or out-of-context claim 1"],
     "affirmations_problématiques": ["Claim contradicting reliable public sources 1"],
     "limites_de_ma_vérification": "Description of what I cannot verify and why"
+  },
+  "informations_scientifiques": {
+    "financement": "Name of the funding organization(s) if mentioned in the text, otherwise 'Not specified'",
+    "conflits_interets": "Present / Absent / Not specified, with details if mentioned in the text",
+    "statut_relecture": "Peer-reviewed / Unverified preprint / Not specified",
+    "taille_echantillon": "Number of participants/subjects if mentioned, otherwise 'Not specified'"
   },
   "intérêts_servis": {
     "à_qui_ce_discours_profite": "Which actors are strengthened by this discourse",
@@ -292,6 +304,7 @@ const TRANSLATIONS = {
     sectionLocuteur: "Locuteur",
     sectionFaitsOpinions: "Faits et opinions",
     sectionVerifications: "Vérifications",
+    sectionInfosScientifiques: "Informations scientifiques",
     sectionInterets: "Intérêts servis",
     sectionBiais: "Biais de cadrage",
     sectionOmissions: "Omissions notables",
@@ -314,6 +327,10 @@ const TRANSLATIONS = {
     labelInfosManquantes: "Informations manquantes",
     labelContreArguments: "Contre-arguments absents",
     labelAApprofondir: "À approfondir",
+    labelFinancement: "Financement",
+    labelConflitsInterets: "Conflits d'intérêts",
+    labelStatutRelecture: "Statut de relecture",
+    labelTailleEchantillon: "Taille de l'échantillon",
     vigilanceTitle: "Vigilance recommandée",
     vigilanceLink: "En savoir plus →",
     sourcesTitle: "Pour aller plus loin",
@@ -404,6 +421,7 @@ const TRANSLATIONS = {
     sectionLocuteur: "Speaker",
     sectionFaitsOpinions: "Facts and opinions",
     sectionVerifications: "Verifications",
+    sectionInfosScientifiques: "Scientific information",
     sectionInterets: "Interests served",
     sectionBiais: "Framing bias",
     sectionOmissions: "Notable omissions",
@@ -426,6 +444,10 @@ const TRANSLATIONS = {
     labelInfosManquantes: "Missing information",
     labelContreArguments: "Missing counter-arguments",
     labelAApprofondir: "To investigate further",
+    labelFinancement: "Funding",
+    labelConflitsInterets: "Conflicts of interest",
+    labelStatutRelecture: "Peer-review status",
+    labelTailleEchantillon: "Sample size",
     vigilanceTitle: "Recommended vigilance",
     vigilanceLink: "Learn more →",
     sourcesTitle: "Further reading",
@@ -569,7 +591,8 @@ async function loadDemos() {
   const files = [
     base + `/demo/analyse-1${suffix}.json`,
     base + `/demo/analyse-2${suffix}.json`,
-    base + `/demo/analyse-3${suffix}.json`
+    base + `/demo/analyse-3${suffix}.json`,
+    base + `/demo/analyse-4${suffix}.json`
   ];
 
   let loaded = 0;
@@ -874,6 +897,9 @@ function showResult(analysis, isDemo, sourceText) {
   if (analysis.vérifications)
     addSection(t('sectionVerifications'), buildVerifications(analysis.vérifications));
 
+  if (analysis.informations_scientifiques)
+    addSection(t('sectionInfosScientifiques'), buildInformationsScientifiques(analysis.informations_scientifiques));
+
   if (analysis.intérêts_servis)
     addSection(t('sectionInterets'), buildInterets(analysis.intérêts_servis));
 
@@ -959,6 +985,15 @@ function buildVerifications(v) {
          (v.limites_de_ma_vérification
            ? `<p style="font-size:.8rem;color:#888;margin-top:.75rem;font-style:italic;">${escapeHtml(v.limites_de_ma_vérification)}</p>`
            : '');
+}
+
+function buildInformationsScientifiques(info) {
+  return `<dl class="definition-list">
+    <dt>${t('labelFinancement')}</dt><dd>${escapeHtml(info.financement || '—')}</dd>
+    <dt>${t('labelConflitsInterets')}</dt><dd>${escapeHtml(info.conflits_interets || '—')}</dd>
+    <dt>${t('labelStatutRelecture')}</dt><dd>${escapeHtml(info.statut_relecture || '—')}</dd>
+    <dt>${t('labelTailleEchantillon')}</dt><dd>${escapeHtml(info.taille_echantillon || '—')}</dd>
+  </dl>`;
 }
 
 function buildInterets(i) {
@@ -1216,6 +1251,15 @@ function buildCopyText(analysis) {
     if (v.affirmations_à_nuancer?.length) { lines.push(`${t('labelANuancer')} :`); v.affirmations_à_nuancer.forEach(x => lines.push(`  • ${x}`)); }
     if (v.affirmations_problématiques?.length) { lines.push(`${t('labelProblematiques')} :`); v.affirmations_problématiques.forEach(x => lines.push(`  • ${x}`)); }
     if (v.limites_de_ma_vérification) lines.push(`${t('copyLimites')} : ${v.limites_de_ma_vérification}`);
+    lines.push('');
+  }
+  if (analysis.informations_scientifiques) {
+    const info = analysis.informations_scientifiques;
+    lines.push(`== ${t('sectionInfosScientifiques').toUpperCase()} ==`);
+    lines.push(`${t('labelFinancement')} : ${info.financement || '—'}`);
+    lines.push(`${t('labelConflitsInterets')} : ${info.conflits_interets || '—'}`);
+    lines.push(`${t('labelStatutRelecture')} : ${info.statut_relecture || '—'}`);
+    lines.push(`${t('labelTailleEchantillon')} : ${info.taille_echantillon || '—'}`);
     lines.push('');
   }
   if (analysis.intérêts_servis) {
