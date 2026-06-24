@@ -1,5 +1,7 @@
 # Installer l'extension Bayle
 
+Read in English: [INSTALL_EN.md](INSTALL_EN.md)
+
 ## Chrome, Edge, Opera (installation manuelle)
 
 1. Téléchargez ce dossier `extension/` depuis GitHub

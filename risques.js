@@ -59,6 +59,7 @@ const TRANSLATIONS = {
   <li>Bayle ne remplace pas une vérification journalistique professionnelle</li>
   <li>Bayle ne transcrit pas les vidéos ni l'audio — seul du texte peut être analysé</li>
   <li>Bayle n'a pas accès à Internet pendant l'analyse</li>
+  <li>Bayle ne remplace pas une relecture scientifique par les pairs — pour les articles de recherche, un encart de vigilance spécifique invite à vérifier le financement, les conflits d'intérêts, le statut peer-reviewed ou preprint, et la taille de l'échantillon</li>
 </ul>`,
 
     footerCode: "Code source",
@@ -126,6 +127,7 @@ const TRANSLATIONS = {
   <li>Bayle does not replace professional journalistic fact-checking</li>
   <li>Bayle does not transcribe video or audio — only text can be analyzed</li>
   <li>Bayle does not have internet access during analysis</li>
+  <li>Bayle does not replace scientific peer review — for research articles, a specific vigilance notice prompts users to check funding, conflicts of interest, peer-reviewed or preprint status, and sample size</li>
 </ul>`,
 
     footerCode: "Source code",
