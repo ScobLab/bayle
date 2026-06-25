@@ -361,7 +361,8 @@ const TRANSLATIONS = {
     cantReadArticle: "Impossible de lire cet article",
     cantReadCheck: "Vérifiez que vous êtes sur une page d'article",
     charsExtracted: "caractères extraits",
-    articleNoTitle: "Article sans titre"
+    articleNoTitle: "Article sans titre",
+    resultClearedNotice: "Résultat précédent effacé suite au changement de langue. Relancez l'analyse si besoin."
   },
   en: {
     headerSurtitre: "Analysis tool · Open source",
@@ -455,7 +456,8 @@ const TRANSLATIONS = {
     cantReadArticle: "Cannot read this article",
     cantReadCheck: "Make sure you are on an article page",
     charsExtracted: "characters extracted",
-    articleNoTitle: "Untitled article"
+    articleNoTitle: "Untitled article",
+    resultClearedNotice: "Previous result cleared due to language change. Re-run the analysis if needed."
   }
 };
 
@@ -489,6 +491,20 @@ function applyLanguage(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('lang-btn-active', btn.dataset.lang === lang);
   });
+
+  const stateResult = document.getElementById('state-result');
+  if (stateResult && stateResult.style.display !== 'none') {
+    document.getElementById('result-content').innerHTML = '';
+    showState('ready');
+    const stateReady = document.getElementById('state-ready');
+    if (stateReady) {
+      const notice = document.createElement('p');
+      notice.className = 'result-cleared-notice';
+      notice.textContent = t('resultClearedNotice');
+      stateReady.insertBefore(notice, stateReady.firstChild);
+      setTimeout(() => notice.remove(), 5000);
+    }
+  }
 }
 
 function initLanguage() {

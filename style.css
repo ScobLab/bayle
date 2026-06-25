@@ -567,6 +567,14 @@ body {
   margin: -0.5rem 0 1rem;
 }
 
+.result-cleared-notice {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: #888;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
 /* ================================================================
    FILIGRANE TRAÇABLE
    ================================================================ */

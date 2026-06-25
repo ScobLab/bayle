@@ -356,6 +356,7 @@ const TRANSLATIONS = {
     sourceOrientFranceInfo: "(Service public, neutre et pluraliste)",
     demoBanner: "ANALYSE DE DÉMONSTRATION",
     demoFictifNotice: "Article fictif créé pour la démonstration",
+    resultClearedNotice: "Résultat précédent effacé suite au changement de langue. Relancez l'analyse si besoin.",
     demoSourceLabel: "Voir l'article source analysé",
     demoBtnTest: "Tester avec ma propre clé API",
     copyHeader: "BAYLE — Analyse critique",
@@ -469,6 +470,7 @@ const TRANSLATIONS = {
     sourceDescReportersLab: "Database and research on fact-checking organizations worldwide",
     demoBanner: "DEMONSTRATION ANALYSIS",
     demoFictifNotice: "Fictional article created for demonstration purposes",
+    resultClearedNotice: "Previous result cleared due to language change. Re-run the analysis if needed.",
     demoSourceLabel: "View the analyzed source article",
     demoBtnTest: "Test with my own API key",
     copyHeader: "BAYLE — Critical analysis",
@@ -532,7 +534,14 @@ function applyLanguage(lang) {
     resultZone.innerHTML = '';
     lastResult = null;
   } else if (lastResult && resultZone && resultZone.style.display !== 'none') {
-    showResult(lastResult.analysis, lastResult.isDemo, lastResult.sourceText);
+    resultZone.innerHTML = `<p class="result-cleared-notice">${escapeHtml(t('resultClearedNotice'))}</p>`;
+    lastResult = null;
+    setTimeout(() => {
+      if (resultZone.querySelector('.result-cleared-notice')) {
+        resultZone.style.display = 'none';
+        resultZone.innerHTML = '';
+      }
+    }, 5000);
   }
 }
 
