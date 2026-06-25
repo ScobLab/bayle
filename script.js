@@ -591,8 +591,7 @@ async function loadDemos() {
   const files = [
     base + `/demo/analyse-1${suffix}.json`,
     base + `/demo/analyse-2${suffix}.json`,
-    base + `/demo/analyse-3${suffix}.json`,
-    base + `/demo/analyse-4${suffix}.json`
+    base + `/demo/analyse-3${suffix}.json`
   ];
 
   let loaded = 0;
