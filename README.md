@@ -26,6 +26,8 @@ Bayle ne remplace pas le journalisme. Il aide à le lire.
 2. L'outil envoie le texte à l'API Mistral avec un prompt d'analyse structuré
 3. Vous recevez une fiche en sept rubriques : locuteur, faits vs opinions, vérifications, intérêts servis, biais de cadrage, omissions, contre-points, fiabilité globale
 
+Bayle peut aussi analyser les articles scientifiques et médicaux : financement de l'étude, conflits d'intérêts déclarés, statut de relecture par les pairs (peer-reviewed ou preprint), et taille de l'échantillon sont vérifiés automatiquement quand l'article s'y prête.
+
 Aucune donnée n'est stockée. Tout passe directement entre votre navigateur et l'API Mistral.
 
 ## Utilisation

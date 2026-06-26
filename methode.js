@@ -82,6 +82,7 @@ const TRANSLATIONS = {
   <li><strong>Sources primaires</strong> : rapports officiels, données statistiques publiques, comptes rendus de séance, jugements — autant de documents accessibles directement, sans passer par un intermédiaire.</li>
   <li><strong>Croisement de sources</strong> : comparer le traitement d'un même sujet par plusieurs médias de lignes éditoriales différentes permet de repérer les angles et les omissions propres à chacun.</li>
   <li><strong>Outils de vérification</strong> : services de fact-checking, recherche d'image inversée, archives du web.</li>
+  <li><strong>Articles scientifiques et médicaux</strong> : vérifiez systématiquement le financement de l'étude, les déclarations de conflits d'intérêts, et si l'article est peer-reviewed ou un simple preprint.</li>
 </ul>
 <p><strong>Exemples concrets :</strong></p>
 <ul>
@@ -177,6 +178,7 @@ const TRANSLATIONS = {
   <li><strong>Primary sources</strong>: official reports, public statistical data, session minutes, court rulings — all documents accessible directly, without going through an intermediary.</li>
   <li><strong>Cross-referencing sources</strong>: comparing how the same topic is covered by several media outlets with different editorial lines helps identify each one's angles and omissions.</li>
   <li><strong>Verification tools</strong>: fact-checking services, reverse image search, web archives.</li>
+  <li><strong>Scientific and medical articles</strong>: always check the study's funding source, declared conflicts of interest, and whether the article is peer-reviewed or a preprint.</li>
 </ul>
 <p><strong>Concrete examples:</strong></p>
 <ul>

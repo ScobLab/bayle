@@ -262,7 +262,7 @@ const TRANSLATIONS = {
   fr: {
     headerSurtitre: "Outil d'analyse · Open source",
     headerSoustitre: "Analysez n'importe quel article de presse.<br>Obtenez une lecture neutre et documentée.",
-    disclaimer: "Bayle est un outil expérimental d'aide à la lecture critique. Cet outil ne remplace ni le journalisme, ni votre propre jugement.",
+    disclaimer: "Bayle est un outil expérimental d'aide à la lecture critique. Il analyse aussi bien les articles de presse que les publications scientifiques et médicales (avec vérification du financement, des conflits d'intérêts et du statut de relecture par les pairs). Cet outil ne remplace ni le journalisme, ni votre propre jugement.",
     extensionTitle: "Extension navigateur",
     extensionDesc: "Analysez l'article que vous lisez en un clic. Chrome, Edge, Opera, Firefox.",
     extensionLink: "Guide d'installation →",
@@ -380,7 +380,7 @@ const TRANSLATIONS = {
   en: {
     headerSurtitre: "Analysis tool · Open source",
     headerSoustitre: "Analyze any news article.<br>Get a neutral, documented reading.",
-    disclaimer: "Bayle is an experimental tool to support critical reading. It does not replace journalism or your own judgment.",
+    disclaimer: "Bayle is an experimental tool to support critical reading. It analyzes both news articles and scientific or medical publications (checking funding, conflicts of interest, and peer-review status). It does not replace journalism or your own judgment.",
     extensionTitle: "Browser extension",
     extensionDesc: "Analyze the article you're reading in one click. Chrome, Edge, Opera, Firefox.",
     extensionLink: "Installation guide →",
