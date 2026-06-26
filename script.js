@@ -505,6 +505,7 @@ function t(key) {
 
 function applyLanguage(lang) {
   currentLang = lang;
+  console.log('[Bayle] applyLanguage appelé, lastResult:', lastResult);
   localStorage.setItem('bayle_lang', lang);
   document.documentElement.lang = lang;
 
